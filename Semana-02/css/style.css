@@ -1,0 +1,100 @@
+/* General Styles */
+
+*{
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+header, main, footer{
+    margin-left: 160px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.text-center{
+    text-align: center;
+}
+
+
+
+/* Sidebar Styles */
+
+#sidebar{
+    position: fixed;
+    width: 160px;
+    height: 100vh;
+    margin-top: 0;
+    margin-left: 0;
+    color: #f13312;
+}
+
+.sidebar-logo-bg{
+    background-color: rgb(55, 56, 103, 0.4);
+}
+
+.logo{
+    display: block;
+    margin: auto;
+}
+
+.sidebar-title{
+    color: rgb(55, 56, 103);
+    font-size: 20px;
+}
+
+.sidebar-nav-list{
+    margin-top: 25px;
+}
+
+.sidebar-btn-text{
+    color: #f13312;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sidebar-nav{
+    font-size: 15px;
+    list-style: none;
+    margin: 25px auto;
+}
+
+.sidebar-li-home{
+    list-style-image: url(../assets/img/icons/icon.png);
+}
+
+.sidebar-li-person{
+    list-style-image: url(../assets/img/icons/person.png);
+}
+
+.sidebar-contact-li{
+    font-size: 10px;
+    list-style: none;
+    margin: 10px auto;
+}
+
+
+.sidebar-contact{
+    margin-top: 300px;
+    padding-left: 5px;
+}
+
+.text-underline{
+    text-decoration: underline #f13312;
+}
+
+.sidebar-li-mail{
+    list-style-image: url(../assets/img/icons/message-icon.png);
+}
+
+.sidebar-li-call{
+    list-style-image: url(../assets/img/icons/call.png);
+}
+
+.sidebar-li-direction{
+    list-style-image: url(../assets/img/icons/home.png);
+}

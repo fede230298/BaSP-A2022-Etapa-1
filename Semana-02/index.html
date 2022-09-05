@@ -4,57 +4,32 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
         <title>Trackgenix</title>
     </head>
     <body>
-        <aside>
-            <div>
-                <div>
-                    <img src="./assets/img/icons/logo.png" alt="Trackgenix RR Logo">
-                </div>
-                <div>
-                    <a href="">
-                        <img src="./assets/img/icons/icon.png" alt="Home">
-                        <p>
-                            Home
-                        </p>
-                    </a>
-                    <a href="">
-                        <img src="./assets/img/icons/person.png" alt="Sign Up">
-                        <p>
-                            Sign Up
-                        </p>
-                    </a>
-                    <a href="">
-                        <img src="./assets/img/icons/person.png" alt="LogIn">
-                        <p>
-                            LogIn
-                        </p>
-                    </a>
-                </div>
-                <div>
-                    <p>Contact Us</p>
-                    <div>
-                        <div>
-                            <img src="./assets/img/icons/message-icon.png" alt="Email">
-                            <p>
-                                trackgenix@gmail.com
-                            </p>
-                        </div>
-                        <div>
-                            <img src="./assets/img/icons/call.png" alt="Telephone">
-                            <p>
-                                (000) 000-0000
-                            </p>
-                        </div>
-                        <div>
-                            <img src="./assets/img/icons/home.png" alt="Address">
-                            <p>
-                                1234 Somewhere Road #8254 Nashville, TN 00000-0000
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        <aside id="sidebar">
+            <div class="sidebar-logo-bg">
+                <img src="./assets/img/icons/logo.png" alt="Trackgenix RR Logo" class="logo">
+                <p class="text-center sidebar-title">Trackgenix</p>
+            </div>
+            <nav>
+                <ul>
+                    <li class="sidebar-nav sidebar-li-home"><a href="" class="sidebar-btn-text">Home</a></li>
+                    <li class="sidebar-nav sidebar-li-person"><a href="" class="sidebar-btn-text">Sign Up</a></li>
+                    <li class="sidebar-nav sidebar-li-person"><a href="" class="sidebar-btn-text">LogIn</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-contact">
+                <p class="text-underline">Contact Us</p>
+                <ul>
+                    <li class="sidebar-contact-li sidebar-li-mail">trackgenix@gmail.com</li>
+                    <li class="sidebar-contact-li sidebar-li-call">(000) 000-0000</li>
+                    <li class="sidebar-contact-li sidebar-li-direction">1234 Somewhere Road #8254 Nashville, TN 00000-0000</li>
+                </ul>
             </div>
         </aside>
         <header>
