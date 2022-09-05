@@ -29,9 +29,8 @@ a{
 }
 
 .bg-gray{
-    width: 100%;
-    margin-left: -200px;
-    margin-right: -200px;
+    display: inline-block;
+    width: 100% !important;
     background-color: #d9d9d9;
 }
 
@@ -458,6 +457,10 @@ input[type=text], select {
     background-size: cover;
 }
 
+ol > li > a{
+    color: #373867;
+}
+
 /* Footer */
 
 footer{
@@ -478,13 +481,3 @@ footer{
     padding: 10px 0px;
 }
 
-
-
-
-.f-container{
-    display: inline-block;
-    position: relative;
-    box-sizing: content-box;
-    height: max-content;
-    padding: 50px 100px;
-}
