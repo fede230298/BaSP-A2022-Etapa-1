@@ -24,10 +24,20 @@ a{
     padding: 50px 100px;
 }
 
+.bg-gray{
+    width: 150%;
+    margin-left: -200px;
+    background-color: #d9d9d9;
+}
+
 /* Text */
 
 .text-size-35{
     font-size: 35px;
+}
+
+.text-size-30{
+    font-size: 30px;
 }
 
 .text-size-20{
@@ -206,3 +216,34 @@ header{
 
 /* Main Sections */
 
+.cards-container{
+    position: relative;
+    float: left;
+    box-sizing: content-box;
+    height: max-content;
+    padding: 50px 100px;
+}
+
+.card-img{
+    max-width: 512px;
+    max-height: 400px;
+}
+
+.card-box{
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    padding: 50px 0px;
+    position: relative;
+    box-sizing: content-box;
+}
+
+.box-40p{
+    float: left;
+    width: 40%;
+}
+
+.box-60p{
+    float: left;
+    width: 60%;
+}
