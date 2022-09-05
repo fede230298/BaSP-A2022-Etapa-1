@@ -248,11 +248,42 @@ header{
     width: 60%;
 }
 
+/* Functionalities */
+
+.block{
+    float: left;
+    width: 45%;
+    padding: 50px 0px;
+}
+
+.padding25{
+    padding: 50px 25px;
+}
+
+.block-f-img{
+    float: left;
+    width: 25%;
+}
+
+.f-text-title{
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: 75px;
+    padding: 5px 0px 5px 90px;
+}
+
+.f-text-body{
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 75px;
+    padding: 5px 0px 5px 90px;
+}
+
 /* Contact */
 
 .contact-container{
     position: relative;
-    height: 800px;
+    height: 1200px;
     padding-top: 100px;
     padding-left: 100px;
     padding-right: 100px;
