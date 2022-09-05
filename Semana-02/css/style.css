@@ -258,8 +258,8 @@ header{
     padding: 50px 0px;
 }
 
-.padding25{
-    padding: 50px 25px;
+.padding20{
+    padding: 50px 20px;
 }
 
 .block-f-img{
@@ -305,7 +305,7 @@ header{
     display: inline-block;
     box-sizing: content-box;
     height: max-content;
-    padding: 50px 100px;
+    padding: 50px 50px;
 }
 
 .form-box{
