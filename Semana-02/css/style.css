@@ -9,6 +9,10 @@ header, main, footer{
     margin-left: 160px;
 }
 
+main{
+    background-color: white;
+}
+
 h1{
     font-size: 40px;
 }
@@ -20,13 +24,14 @@ a{
 .main-container{
     position: relative;
     box-sizing: content-box;
-    height:max-content;
+    height: max-content;
     padding: 50px 100px;
 }
 
 .bg-gray{
-    width: 150%;
+    width: 100%;
     margin-left: -200px;
+    margin-right: -200px;
     background-color: #d9d9d9;
 }
 
@@ -169,14 +174,13 @@ a{
     margin: 10px auto;
 }
 
+.text-underline{
+    text-decoration: underline #f13312;
+}
 
 .sidebar-contact{
     margin-top: 300px;
     padding-left: 5px;
-}
-
-.text-underline{
-    text-decoration: underline #f13312;
 }
 
 .sidebar-li-mail{
@@ -218,7 +222,6 @@ header{
 
 .cards-container{
     position: relative;
-    float: left;
     box-sizing: content-box;
     height: max-content;
     padding: 50px 100px;
@@ -233,7 +236,7 @@ header{
     display: inline-block;
     width: 100%;
     margin: auto;
-    padding: 50px 0px;
+    padding: 100px 0px;
     position: relative;
     box-sizing: content-box;
 }
@@ -265,6 +268,15 @@ header{
     width: 25%;
 }
 
+.f-box{
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding: 100px 0px;
+    position: relative;
+    box-sizing: content-box;
+}
+
 .f-text-title{
     font-weight: 700;
     font-size: 30px;
@@ -282,16 +294,25 @@ header{
 /* Contact */
 
 .contact-container{
+    display: inline-block;
     position: relative;
-    height: 1200px;
-    padding-top: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
+    width: 100%;
+    height: max-content;
+    padding: 100px;
+}
+
+.f-container{
+    display: inline-block;
+    position: relative;
+    box-sizing: content-box;
+    height: max-content;
+    padding: 50px 100px;
 }
 
 .form-box{
+    display: inline-block;
     position: relative;
-    float: left;
+    box-sizing: content-box;
     width: 100%;
 }
 
@@ -411,6 +432,7 @@ input[type=text], select {
 
 .list-container{
     position: relative;
+    display: inline;
     height: 100px;
     padding: 40px 150px 40px 350px;
 }
@@ -429,6 +451,8 @@ input[type=text], select {
 }
 
 .list-product-bg{
+    display: block;
+    width: auto;
     background-image: url(../assets/img/list-picture.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -452,4 +476,15 @@ footer{
 
 .footer-text{
     padding: 10px 0px;
+}
+
+
+
+
+.f-container{
+    display: inline-block;
+    position: relative;
+    box-sizing: content-box;
+    height: max-content;
+    padding: 50px 100px;
 }
