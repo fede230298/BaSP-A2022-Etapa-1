@@ -212,20 +212,16 @@
                         </div>
                     </div>
                 </section>
-                <section>
-                    <div>
-                        <h2>Contact</h2>
-                    </div>
-                    <form>
-                        <div>
-                            <label for="Name">Name</label>
-                            <input type="text">
+                <section class="contact-container">
+                    <h2 class="text-size-35 text-center">Contact</h2>
+                    <span class="line-gray"></span>
+                    <form class="form-box">
+                        <div class="form-container">
+                            <label for="Name" class="form-text">Name</label>
+                            <input type="text" placeholder="Your Name Here" class="form-input">
                         </div>
-                        <div>
-                            <label for="Email">Email</label>
-                            <input type="text">
-                        </div>
-                        <div>
+                        <div class="form-container">
+                            <label for="Contact" class="form-hidden">Contact Area</label>
                             <select name="Area">
                                 <option hidden value="Placeholder">Contact Area</option>
                                 <option value="Human Resources">
@@ -239,94 +235,107 @@
                                 </option>
                             </select>
                         </div>
-                        <div>
-                            <label for="Message">Message</label>
-                            <input type="text">
+                        <div class="form-container">
+                            <label for="Email" class="form-text">Email</label>
+                            <input type="text" placeholder="Your Email Here" class="form-input">
+                        </div>
+                        <div class="form-message-container">
+                            <label for="Message" class="form-text">Message</label>
+                            <textarea placeholder="Your Message Here" name="Message" id="" class="form-input-message"></textarea>
+                        </div>
+                        <div class="form-button-container">
+                            <button type="submit" class="btn btn-green form-btn-left">
+                                <img src="./assets/img/icons/mail.png" alt="Send Message">
+                                Send Message
+                            </button>
+                            <button class="btn btn-red form-btn-right">
+                                Reset
+                            </button>
                         </div>
                     </form>
-                    <input type="button" value="Send Message">
-                    <input type="button" value="Reset">
                 </section>
-                <section>
-                    <div>
-                        <h4>
-                            Products
-                        </h4>
-                        <ol>
-                            <li>
-                                Features
-                            </li>
-                            <li>
-                                Downloads
-                            </li>
-                            <li>
-                                Integrations
-                            </li>
-                            <li>
-                                Additional features
-                            </li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h4>
-                            Enterprise
-                        </h4>
-                        <ol>
-                            <li>
-                                About Us
-                            </li>
-                            <li>
-                                Clients
-                            </li>
-                            <li>
-                                Resources
-                            </li>
-                            <li>
-                                Blog
-                            </li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h4>
-                            Support
-                        </h4>
-                        <ol>
-                            <li>
-                                Help
-                            </li>
-                            <li>
-                                Tutorials
-                            </li>
-                            <li>
-                                API
-                            </li>
-                            <li>
-                                Contact
-                            </li>
-                        </ol>
+                <section class="list-product-bg list-container">
+                    <div class="list-text-container list-text-color">
+                        <div class="list-block">
+                            <h4 class="list-title">
+                                Products
+                            </h4>
+                            <ol>
+                                <li>
+                                    <a href="">Features</a>
+                                </li>
+                                <li>
+                                    <a href="">Downloads</a>
+                                </li>
+                                <li>
+                                    <a href="">Integrations</a>
+                                </li>
+                                <li>
+                                    <a href="">Additional Features</a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="list-block">
+                            <h4 class="list-title">
+                                Enterprise
+                            </h4>
+                            <ol>
+                                <li>
+                                    <a href="">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="">Clients</a>
+                                </li>
+                                <li>
+                                    <a href="">Resources</a>
+                                </li>
+                                <li>
+                                    <a href="">Blog</a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="list-block">
+                            <h4 class="list-title">
+                                Support
+                            </h4>
+                            <ol>
+                                <li>
+                                    <a href="">Help</a>
+                                </li>
+                                <li>
+                                    <a href="">Tutorials</a>
+                                </li>
+                                <li>
+                                    <a href="">API</a>
+                                </li>
+                                <li>
+                                    <a href="">Contact</a>
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </section>
             </div>
         </main>
         <footer>
-            <div>
-                <a href="">
+            <div class="footer-img-container">
+                <a href="" class="footer-img">
                     <img src="./assets/img/icons/linkedin-negative.png" alt="LinkedIn">
                 </a>
-                <a href="">
+                <a href="" class="footer-img">
                     <img src="./assets/img/icons/facebook-negative.png" alt="Facebook">
                 </a>
-                <a href="">
+                <a href="" class="footer-img">
                     <img src="./assets/img/icons/twitter-negative.png" alt="Twitter">
                 </a>
-                <a href="">
+                <a href="" class="footer-img">
                     <img src="./assets/img/icons/instagram-negative.png" alt="Instagram">
                 </a>
-                <a href="">
+                <a href="" class="footer-img">
                     <img src="./assets/img/icons/github-negative.png" alt="Github">
                 </a>
             </div>
-            <div>
+            <div class="footer-text">
                 <p>
                     Rosario, Argentina
                 </p>

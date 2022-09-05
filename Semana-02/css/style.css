@@ -247,3 +247,178 @@ header{
     float: left;
     width: 60%;
 }
+
+/* Contact */
+
+.contact-container{
+    position: relative;
+    height: 800px;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.form-box{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.form-container{
+    position: relative;
+    float: left;
+    width: 45%;
+    padding: 20px;
+}
+
+.form-message-container{
+    position: relative;
+    float: left;
+    width: 96.5%;
+    padding: 20px;
+}
+
+.form-label{
+    padding: 5px;
+}
+
+.form-hidden{
+    display: hidden;
+}
+
+.form-text{
+    font-style: normal;
+    font-size: 15px;
+}
+
+.form-input{
+    border: 1px #373867 solid;
+    border-radius: 4px;
+    padding: 10px 12px;
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.form-input-message{
+    border: 1px #373867 solid;
+    border-radius: 4px;
+    padding: 10px 12px;
+    width: 100%;
+    height: 300px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.form-button-container{
+    float: left;
+    width: 96.5;
+    padding: 20px;
+}
+
+.form-btn-left{
+    position: absolute;
+    left: 0px;
+    margin: 0px 20px;
+}
+
+.form-btn-right{
+    position: absolute;
+    right: 0px;
+    margin: 0px 20px;
+}
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.btn{
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.btn-green{
+    color:#373867;
+    background-color: #AACE9B;
+}
+
+.btn-green:hover{
+    background-color: rgba(73, 163, 122, 0.918)
+}
+
+.btn-red{
+    color:#373867;
+    background-color: #f13312;
+}
+
+.btn-red:hover{
+    background-color: #f13412af;
+}
+
+/* List */
+
+.list-block{
+    float: left;
+    width: 30%;
+}
+
+.list-container{
+    position: relative;
+    height: 100px;
+    padding: 40px 150px 40px 350px;
+}
+
+.list-text-color{
+    color: #373867;
+}
+
+.list-title{
+    font-size: 25px;
+}
+
+.list-text-container{
+    display: block;
+    margin: auto;
+}
+
+.list-product-bg{
+    background-image: url(../assets/img/list-picture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Footer */
+
+footer{
+    background-color: #AACE9B;
+    text-align: center;
+}
+
+.footer-img-container{
+    display: inline-block;
+    padding: 15px 200px;
+}
+
+.footer-img{
+    margin: 0px 20px;
+}
+
+.footer-text{
+    padding: 10px 0px;
+}
