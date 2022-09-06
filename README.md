@@ -8,6 +8,7 @@ This is a web page of a software company called *Trackgenix* that provides custo
 2. Open the Week folder you would like to try.
 3. Execute **index.html**.
 4. The file will be opened in your browser.
+5. For it to display correctly, please your browser display size to 1440 x 900 px.
 
 ### Week 0
 

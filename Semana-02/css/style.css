@@ -1,8 +1,9 @@
 /* General Styles */
 
-*{
+body{
     margin: 0px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 1.5;
 }
 
 header, main, footer{
@@ -25,7 +26,7 @@ a{
     position: relative;
     box-sizing: content-box;
     height: max-content;
-    padding: 50px 100px;
+    padding: 50px 75px;
 }
 
 .bg-gray{
@@ -80,6 +81,12 @@ a{
 /* Text Attributes */
 
 .text-container{
+    line-height: 1.5;
+    padding: 30px 0px
+}
+
+.card-text-container{
+    line-height: 1;
     padding: 30px 0px
 }
 
@@ -124,6 +131,14 @@ a{
     margin-top: 0;
     margin-left: 0;
     color: #f13312;
+}
+
+#sidebar a:hover{
+    color: #373867;
+}
+
+#sidebar ul{
+    padding-left: 40px;
 }
 
 .sidebar-logo-bg{
@@ -223,7 +238,7 @@ header{
     position: relative;
     box-sizing: content-box;
     height: max-content;
-    padding: 50px 100px;
+    padding: 50px 50px;
 }
 
 .card-img{
@@ -267,6 +282,46 @@ header{
     width: 25%;
 }
 
+.block-f-img-bg-hl{
+    width: 142px;
+    height: 142px;
+    background-image: url(/Semana-02/assets/img/icons/hours-log.png);
+}
+
+.block-f-img-bg-hl:hover{
+    background-image: url(/Semana-02/assets/img/icons/hours-log-hover.png);
+}
+
+.block-f-img-bg-mr{
+    width: 142px;
+    height: 142px;
+    background-image: url(/Semana-02/assets/img/icons/multiple-roles.png);
+}
+
+.block-f-img-bg-mr:hover{
+    background-image: url(/Semana-02/assets/img/icons/multiple-roles-hover.png);
+}
+
+.block-f-img-bg-r{
+    width: 142px;
+    height: 142px;
+    background-image: url(/Semana-02/assets/img/icons/reports.png);
+}
+
+.block-f-img-bg-r:hover{
+    background-image: url(/Semana-02/assets/img/icons/reports-hover.png);
+}
+
+.block-f-img-bg-rm{
+    width: 142px;
+    height: 142px;
+    background-image: url(/Semana-02/assets/img/icons/resource-managemet.png);
+}
+
+.block-f-img-bg-rm:hover{
+    background-image: url(/Semana-02/assets/img/icons/resource-management-hover.png);
+}
+
 .f-box{
     position: relative;
     display: block;
@@ -305,7 +360,7 @@ header{
     display: inline-block;
     box-sizing: content-box;
     height: max-content;
-    padding: 50px 50px;
+    padding: 50px 25px;
 }
 
 .form-box{
@@ -381,8 +436,12 @@ header{
     margin: 0px 20px;
 }
 
+textarea{
+    font-family: 'Roboto', 'sans-serif';
+}
 
 input[type=text], select {
+    font-family: 'Roboto', 'sans-serif';
     display: inline-block;
     width: 100%;
     padding: 12px 20px;
@@ -393,6 +452,7 @@ input[type=text], select {
   }
 
 .btn{
+    font-family: 'Roboto', 'sans-serif';
     display: inline-block;
     text-align: center;
     white-space: nowrap;
@@ -438,6 +498,10 @@ input[type=text], select {
 
 .list-text-color{
     color: #373867;
+}
+
+.list-block li a:hover{
+    color: #f13312;
 }
 
 .list-title{
