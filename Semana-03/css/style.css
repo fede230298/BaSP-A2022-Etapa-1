@@ -75,6 +75,11 @@ a{
     color: #ffffff;
 }
 
+.text-black{
+    color: black;
+}
+
+
 .text-light{
     color: rgb(256,256,256, 0.75);
     line-height: 25px;
@@ -86,7 +91,7 @@ a{
     color: rgb(55, 56, 103);
 }
  
- .text-green{
+.text-green{
      color: #49A37B;
 }
 
@@ -267,7 +272,7 @@ header{
     box-sizing: content-box;
 }
 
-.box-40p{
+/* .box-40p{
     float: left;
     width: 40%;
 }
@@ -275,7 +280,7 @@ header{
 .box-60p{
     float: left;
     width: 60%;
-}
+} */
 
 /* Functionalities */
 

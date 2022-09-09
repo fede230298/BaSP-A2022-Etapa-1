@@ -1,0 +1,110 @@
+/* Main Section */
+
+.main-container{
+    position: relative;
+    box-sizing: content-box;
+    width: auto;
+    height: max-content;
+    padding: 20px 18px;
+}
+
+.cards-container{
+    display: flex;
+    position: relative;
+    box-sizing: content-box;
+    width: auto;
+    height: max-content;
+    padding: 25px 18px;
+}
+
+.card-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    padding: 15px 0px;
+    box-sizing: content-box;
+}
+
+.card-img{
+    display: flex;
+    width: 100%;
+    height: auto;
+
+}
+
+.card-text-box{
+    display: flex;
+}
+
+@media (max-width : 765px){
+    .line-greenblue{
+        display: inline-block;
+        width: 100%;
+        border-top: 5px solid #286276;
+    }
+
+    .block{
+        width: 100%;
+    }
+}
+
+.f-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px 18px;
+    justify-content: space-evenly;
+}
+
+.padding20{
+    padding: 25px 0px;
+}
+
+.block{
+    display: flex;
+    width: auto;
+    flex-basis: content;
+}
+
+
+.block-f-img-bg-hl{
+    display: flex;
+    width: 142px;
+    height: 142px;
+    background-image: url("../assets/img/icons/hours-log.png");
+}
+
+.block-f-img-bg-hl:hover{
+    background-image: url("../assets/img/icons/hours-log-hover.png");
+}
+
+.block-f-img-bg-mr{
+    width: 142px;
+    height: 142px;
+    background-image: url("../assets/img/icons/multiple-roles.png");
+}
+
+.block-f-img-bg-mr:hover{
+    background-image: url("../assets/img/icons/multiple-roles-hover.png");
+}
+
+.block-f-img-bg-r{
+    width: 142px;
+    height: 142px;
+    background-image: url("../assets/img/icons/reports.png");
+}
+
+.block-f-img-bg-r:hover{
+    background-image: url("../assets/img/icons/reports-hover.png");
+}
+
+.block-f-img-bg-rm{
+    width: 142px;
+    height: 142px;
+    background-image: url("../assets/img/icons/resource-managemet.png");
+}
+
+.block-f-img-bg-rm:hover{
+    background-image: url("../assets/img/icons/resource-management-hover.png");
+}
