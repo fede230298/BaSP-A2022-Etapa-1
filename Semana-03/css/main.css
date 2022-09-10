@@ -52,19 +52,62 @@
 
 .f-container{
     display: flex;
+    width: auto;
+    height: auto;
     flex-wrap: wrap;
-    padding: 25px 18px;
+    padding: 5px 10px;
     justify-content: space-evenly;
 }
 
-.padding20{
-    padding: 25px 0px;
+.element-container{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-evenly;
 }
 
-.block{
+.img-container{
     display: flex;
+    flex-wrap: wrap;
+    min-width: 150px;
+    width: 20%;
+    height: auto;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.text-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    height: auto;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1023px) {
+    .element-container{
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .element-container{
+        width: 40%;
+    }
+}
+
+.block-f-img-bg-hl{
     width: auto;
-    flex-basis: content;
+    height: auto;
+    background-image: url(/Semana-02/assets/img/icons/hours-log.png);
+    background-size:cover;
+}
+
+.block-f-img-bg-hl:hover{
+    background-image: url(/Semana-02/assets/img/icons/hours-log-hover.png);
 }
 
 
@@ -107,4 +150,45 @@
 
 .block-f-img-bg-rm:hover{
     background-image: url("../assets/img/icons/resource-management-hover.png");
+}
+
+.form-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.form-box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.form-message-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    justify-content:flex-start;
+}
+
+.form-button-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    justify-content:space-between;
+}
+
+@media (min-width: 768px) {
+    .form-container{
+        width: 45%;
+    }
 }

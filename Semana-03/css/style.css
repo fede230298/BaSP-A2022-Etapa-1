@@ -348,19 +348,19 @@ header{
     box-sizing: content-box;
 }
 
-.f-text-title{
+/* .f-text-title{
     font-weight: 700;
     font-size: 30px;
     margin-left: 75px;
     padding: 5px 0px 5px 90px;
-}
+} */
 
-.f-text-body{
+/* .f-text-body{
     font-weight: 500;
     font-size: 20px;
     margin-left: 75px;
     padding: 5px 0px 5px 90px;
-}
+} */
 
 /* Contact */
 
@@ -380,19 +380,19 @@ header{
     padding: 50px 25px;
 }
 
-.form-box{
+/* .form-box{
     position: relative;
     display: inline-block;
     box-sizing: content-box;
     width: 100%;
-}
+} */
 
-.form-container{
+/* .form-container{
     position: relative;
     float: left;
     width: 45%;
     padding: 20px;
-}
+} */
 
 .form-message-container{
     position: relative;
