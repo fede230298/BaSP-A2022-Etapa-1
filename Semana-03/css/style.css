@@ -129,7 +129,7 @@ a{
 
 .line-greenblue{
     display: inline-block;
-    width: 110%;
+    width: 100%;
     border-top: 5px solid #286276;
 }
 
@@ -548,10 +548,10 @@ footer{
     text-align: center;
 }
 
-.footer-img-container{
+/* .footer-img-container{
     display: inline-block;
     padding: 15px 200px;
-}
+} */
 
 .footer-img{
     margin: 0px 20px;
