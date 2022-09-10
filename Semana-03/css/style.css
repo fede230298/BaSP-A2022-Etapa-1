@@ -502,17 +502,16 @@ input[type=text], select {
 /* List */
 
 .list-block{
-    float: left;
     width: 30%;
 }
 
-.list-container{
+/* .list-container{
     position: relative;
     display: inline;
     height: 100px;
-    padding: 40px 150px 40px 350px;
+    padding: 40px 20px;
 }
-
+ */
 .list-text-color{
     color: #373867;
 }
@@ -525,18 +524,18 @@ input[type=text], select {
     font-size: 25px;
 }
 
-.list-text-container{
+/* .list-text-container{
     display: block;
     margin: auto;
-}
+} */
 
-.list-product-bg{
+/* .list-product-bg{
     display: block;
     width: auto;
     background-image: url(../assets/img/list-picture.png);
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 ol > li > a{
     color: #373867;
