@@ -1,5 +1,20 @@
+/* Footer */
+
+footer{
+    background-color: #AACE9B;
+    text-align: center;
+}
+
 .footer-img-container{
     display: flex;
     justify-content: space-around;
     padding: 15px;
+}
+
+.footer-img{
+    margin: 0px 20px;
+}
+
+.footer-text{
+    padding: 10px 0px;
 }
