@@ -6,7 +6,6 @@ main h2{
 }
 
 #who-section p{
-    /* display: flex; */
     height: auto;
     padding: 10px 0px;
     line-height: 1.5;
@@ -20,6 +19,28 @@ main h2{
 
 #who-section p:nth-of-type(2){
     color: #49A37B;
+}
+
+#why-section h3{
+    font-size: 35px;
+}
+
+#why-section p{
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 30px 0px;
+}
+
+#why-cards div:nth-child(1) h3 {
+    border-bottom: 5px solid #286276;
+}
+
+#why-cards div:nth-child(2) h3, #why-cards div:nth-child(4) h3 {
+    border-bottom: 5px solid #ffffff;
+}
+
+#why-cards div:nth-child(3) h3 {
+    border-bottom: 5px solid #d9d9d9;
 }
 
 .main-container{
@@ -64,13 +85,19 @@ main h2{
     display: flex;
 }
 
-.box-60p{
-    display: block;
-    width: 60%;
+.card-text-container{
+    line-height: 1.5;
+    padding: 30px 0px
 }
 
+.box-60p{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+}
 
-
+/* Functionalities */
 .f-container{
     display: flex;
     width: auto;
@@ -87,14 +114,14 @@ main h2{
 
 .f-container p {
     font-size: 20px;
+    text-align: justify;
 }
 
 .element-container{
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    margin: 10px;
-    padding: 10px;
+    /* padding: 10px; */
     justify-content: space-evenly;
 }
 
@@ -336,15 +363,6 @@ main h2{
     }
 }
 
-@media (min-width: 1024px){
-    .card-box{
-        width: 95%;
-    }
-
-    .element-container > .text-container{
-        width: 70%
-    }
-}
 
 @media (max-width: 1023px){
     figure{
@@ -357,7 +375,13 @@ main h2{
         width: 45%;
     }
 
+    .f-container .text-container{
+        width: 100%;
+    }
     
+    .element-container{
+        width: 50%;
+    }
 }
 
 @media (max-width: 1023px) {
@@ -372,10 +396,22 @@ main h2{
 }
 
 @media (min-width: 768px) {
-    .element-container{
-        width: 40%;
+    
+    
+}
+
+@media (min-width: 1024px){
+    .card-box{
+        width: 95%;
     }
 
+    .element-container > .text-container{
+        width: 60%
+    }
+
+    #why-section .card-box{
+        width: 70%;
+    }
 }
 
 .prueba-imagen{
