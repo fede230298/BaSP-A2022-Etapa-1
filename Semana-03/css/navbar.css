@@ -1,0 +1,15 @@
+/* Navbar */
+
+.sidebar-nav-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+@media (min-width: 1024px) {
+    #sidebar{
+        display: flex;
+    }
+}
