@@ -199,8 +199,6 @@ main h2{
     justify-content: space-evenly;
 }
 
-
-
 .block-f-img-bg-hl{
     width: auto;
     height: auto;
@@ -211,7 +209,6 @@ main h2{
 .block-f-img-bg-hl:hover{
     background-image: url(/Semana-02/assets/img/icons/hours-log-hover.png);
 }
-
 
 .block-f-img-bg-hl{
     display: flex;
@@ -254,18 +251,10 @@ main h2{
     background-image: url("../assets/img/icons/resource-management-hover.png");
 }
 
-
-
-
-
 .list-text-container{
     display: flex;
     justify-content: space-between;
 }
-
-
-
-
 
 /* Contact */
 
@@ -511,4 +500,3 @@ input[type=text], select {
         padding: 15px 20%;
     }
 }
-
