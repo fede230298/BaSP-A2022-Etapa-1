@@ -22,4 +22,8 @@ In this week we started the development of the webpage of *Trackgenix*. We creat
 
 In this week we started implementing CSS to the landing page that was made the previous week. Tried to picture it pixel perfect by adding styles to the HTML. Didn't implement neither Flex nor Grid to this week's project
 
+### Week 3
+
+In this week we implemented Flexbox to replace the float elements as well as the fixed elements. Made the web responsive for mobile, tablet and desktop, using mobile-first. Added a hamburger-menu, with no functionalities as of yet, just to display how and where it would be
+
 By Federico Peralta
