@@ -71,7 +71,7 @@ header .text-container{
     .header-mobile-intro{
         display: none;
     }
-    
+
     .header-container{
         width: 500px;
         height: 100vh;
@@ -79,7 +79,7 @@ header .text-container{
         background-color: rgba(00, 00, 00, 0.5);
         backdrop-filter: blur(2px);
     }
-    
+
     .header-body{
         padding-left: 15px;
         /* padding-top: 150px; */
