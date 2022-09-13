@@ -1,5 +1,23 @@
 /* Navbar */
 
+#ham-menu{
+    position: fixed;
+    margin-top: 20px;
+    margin-left: 20px;
+    z-index: 1;
+    padding: 1px 5px;
+    border: 2px #49A37B solid ;
+    border-radius: 5px;
+}
+
+#ham-menu a{
+    color: #49A37B;
+}
+
+#sidebar{
+    display: none;
+}
+
 .sidebar-nav-container{
     display: flex;
     flex-direction: column;
@@ -9,6 +27,10 @@
 }
 
 @media (min-width: 1024px) {
+    #ham-menu{
+        display: none;
+    }
+
     #sidebar{
         display: flex;
     }

@@ -7,7 +7,7 @@ footer{
 
 .footer-img-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 15px;
 }
 

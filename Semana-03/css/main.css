@@ -27,8 +27,7 @@ main h2{
 
 #why-section p{
     font-size: 20px;
-    line-height: 1.5;
-    padding: 30px 0px;
+    line-height: 1.5; 
 }
 
 #why-cards div:nth-child(1) h3 {
@@ -363,12 +362,7 @@ main h2{
     }
 }
 
-
-@media (max-width: 767px){
-    
-}
-
-@media (min-width: 768px) {
+@media (min-width: 480px) {
     .form-container{
         width: 45%;
     }
@@ -387,11 +381,6 @@ main h2{
     figure{
         display: none;
     }
-
-   /*  .element-container{
-        width: 100%;
-    }
-     */
     .box-60p{
         display: block;
         width: 100%;
@@ -406,6 +395,15 @@ main h2{
 }
 
 @media (min-width: 1024px){
+    #who-section p{
+        text-align: center;
+    }
+
+    #why-section p{
+        font-size: 25px;
+        line-height: 1.5; 
+    }
+    
     .card-box{
         width: 95%;
     }
@@ -414,14 +412,22 @@ main h2{
         width: 100%
     }
 
+    .list-container{
+        padding: 15px 100px;
+    }
+
     #why-section .card-box{
-        width: 70%;
+        width: 90%;
     }
 }
 
 @media (min-width: 1440px){
     .element-container .text-container{
         width: 60%;
+    }
+
+    .list-container{
+        padding: 15px 20%;
     }
 }
 
@@ -440,7 +446,12 @@ main h2{
     color: red;
 }
 
-#sidebar a p {
-    padding: 0px 15px;
+#sidebar li{
+    padding: 10px 0px;
+}
+
+#sidebar li p {
+    padding: 0px 0px 0px 10px;
     display: inline-block;
+    
 }
