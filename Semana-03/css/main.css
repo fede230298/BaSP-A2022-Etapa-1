@@ -5,6 +5,20 @@ main h2{
     border-bottom: 10px solid #d9d9d9;
 }
 
+header .text-container{
+    width: 100%;
+}
+
+#sidebar li{
+    padding: 10px 0px;
+}
+
+#sidebar li p {
+    padding: 0px 0px 0px 10px;
+    display: inline-block;
+    
+}
+
 #who-section p{
     height: auto;
     padding: 10px 0px;
@@ -136,6 +150,10 @@ main h2{
 
 .img-container-prueba{
     width: 100%;
+}
+
+.text-box{
+    padding: 50px 10px;
 }
 
 .text-box > .text-container{
@@ -275,6 +293,31 @@ main h2{
     justify-content:space-between;
 }
 
+.form-input{
+    display: inline-block;
+    padding: 10px 12px;
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px #373867 solid;
+    border-radius: 4px;
+}
+
+textarea{
+    font-family: 'Roboto', 'sans-serif';
+}
+
+input[type=text], select {
+    font-family: 'Roboto', 'sans-serif';
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
 .btn{
     font-family: 'Roboto', 'sans-serif';
     display: inline-block;
@@ -320,6 +363,8 @@ main h2{
 
 .list-container h4{
     color: #373867;
+    font-size: 25px;
+    text-align: center;
 }
 
 .list-container ol{
@@ -346,6 +391,10 @@ main h2{
 .list-block{
     width: 30%;
     min-width:max-content;
+}
+
+.list-block li a:hover{
+    color: #f13312;
 }
 
 /* Media Queries */
@@ -395,6 +444,10 @@ main h2{
 }
 
 @media (min-width: 1024px){
+    header, main, footer{
+        margin-left: 160px;
+    }
+
     #who-section p{
         text-align: center;
     }
@@ -436,22 +489,4 @@ main h2{
     width: 40%;
     justify-content: space-around;
     align-items: center;
-}
-
-.fa-brands{
-    color:#ffffff;
-}
-
-.fa-brands:hover{
-    color: red;
-}
-
-#sidebar li{
-    padding: 10px 0px;
-}
-
-#sidebar li p {
-    padding: 0px 0px 0px 10px;
-    display: inline-block;
-    
 }
