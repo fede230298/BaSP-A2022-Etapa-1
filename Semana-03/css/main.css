@@ -364,10 +364,8 @@ main h2{
 }
 
 
-@media (max-width: 1023px){
-    figure{
-        display: none;
-    }
+@media (max-width: 767px){
+    
 }
 
 @media (min-width: 768px) {
@@ -385,10 +383,15 @@ main h2{
 }
 
 @media (max-width: 1023px) {
-    .element-container{
+
+    figure{
+        display: none;
+    }
+
+   /*  .element-container{
         width: 100%;
     }
-    
+     */
     .box-60p{
         display: block;
         width: 100%;
@@ -396,7 +399,9 @@ main h2{
 }
 
 @media (min-width: 768px) {
-    
+    .f-container .element-container{
+        width: 50%;
+    }
     
 }
 
@@ -406,11 +411,17 @@ main h2{
     }
 
     .element-container > .text-container{
-        width: 60%
+        width: 100%
     }
 
     #why-section .card-box{
         width: 70%;
+    }
+}
+
+@media (min-width: 1440px){
+    .element-container .text-container{
+        width: 60%;
     }
 }
 
@@ -419,4 +430,17 @@ main h2{
     width: 40%;
     justify-content: space-around;
     align-items: center;
+}
+
+.fa-brands{
+    color:#ffffff;
+}
+
+.fa-brands:hover{
+    color: red;
+}
+
+#sidebar a p {
+    padding: 0px 15px;
+    display: inline-block;
 }
