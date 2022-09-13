@@ -16,9 +16,9 @@ main{
 
 h1{
     width: 120%;
+    border-bottom: solid 3px #AACE9B;
     font-size: 40px;
     color: #ffffff;
-    border-bottom: solid 3px #AACE9B;
 }
 
 h2{
@@ -51,36 +51,13 @@ a{
     font-size: 16px;
 }
 
-/* Header Section */
-
-header{
-    height: 100vh;
-    background-image: url(../assets/img/main.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.header-container{
-    margin-left: 150px;
-    width: 500px;
-    height: 100vh;
-    background-color: rgba(00, 00, 00, 0.5);
-    backdrop-filter: blur(2px);
-}
-
-.header-body{
-    padding-left: 15px;
-    padding-top: 150px;
-    padding-right: 100px;
-}
-
 /* Main Sections */
 
 .cards-container{
     position: relative;
-    box-sizing: content-box;
     height: max-content;
     padding: 50px 50px;
+    box-sizing: content-box;
 }
 
 .card-img{
@@ -89,8 +66,8 @@ header{
 }
 
 .card-box{
-    position: relative;
     display: inline-block;
+    position: relative;
     width: 100%;
     margin: auto;
     padding: 100px 0px;
