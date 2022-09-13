@@ -14,15 +14,15 @@ This is a web page of a software company called *Trackgenix* that provides custo
 
 In this week of development we designed the view of the pages and its flows in Figma, giving the pages the necessary interactions to make it work and give it a full display of what it can do.
 
-### Week 1
+### [Week 1](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-01/index.html)
 
 In this week we started the development of the webpage of *Trackgenix*. We created the HTML file with the landing page following the Figma style. This does not include CSS or JS. We used Git to manage our version of the project. We created the GitHub repository and pushed the changes.
 
-### Week 2
+### [Week 2](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-02/index.html)
 
 In this week we started implementing CSS to the landing page that was made the previous week. Tried to picture it pixel perfect by adding styles to the HTML. Didn't implement neither Flex nor Grid to this week's project
 
-### Week 3
+### [Week 3](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-03/index.html)
 
 In this week we implemented Flexbox to replace the float elements as well as the fixed elements. Made the web responsive for mobile, tablet and desktop, using mobile-first. Added a hamburger-menu, with no functionalities as of yet, just to display how and where it would be
 
