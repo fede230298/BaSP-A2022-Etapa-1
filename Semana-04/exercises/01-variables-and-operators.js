@@ -21,7 +21,8 @@ var result1B = stringA + ' ' + stringB;
 
 console.log(result1B);
 
-// c Crear dos variables de tipo String y sumar el largo de cada variable (cantidad de letras del string) guardando el resultado de la suma en una 3er variable (utilizar length).
+// c Crear dos variables de tipo String y sumar el largo de cada variable (cantidad de letras del string) guardando el
+// resultado de la suma en una 3er variable (utilizar length).
 
 console.log('-Exercise 1.c:')
 
