@@ -13,25 +13,25 @@ console.log(result2A);
 
 console.log('-Exercise 2.b:');
 
-var stringA = "Great, this string also has more than 10 characters";
-var result2B = stringA.substring(0,5)
+var stringA = 'Great, this string also has more than 10 characters';
+var result2B = stringA.substring(0,5);
 
-console.log(result2B);
+console.log(result2B);;
 
 // c Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string con los últimos 3 caracteres guardando el resultado en una nueva variable (utilizar substring).
 
-console.log('-Exercise 2.c:')
+console.log('-Exercise 2.c:');
 
-var stringA = "This is another string with more than 10 characters";
-var result2C = stringA.substring(stringA.length-3)
+var stringA = 'This is another string with more than 10 characters';
+var result2C = stringA.substring(stringA.length-3);
 
 console.log(result2C);
 
 // d Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string con la primera letra en mayúscula y las demás en minúscula. Guardar el resultado en una nueva variable (utilizar substring, toUpperCase, toLowerCase y el operador +).
 
-console.log('-Exercise 2.d:')
+console.log('-Exercise 2.d:');
 
-var stringA = "yeT anoTher LoNG strinG";
+var stringA = 'yeT anoTher LoNG strinG';
 var result2D = (stringA.substring(0,1)).toUpperCase()+(stringA.substring(1)).toLowerCase();
 
 console.log(result2D);
@@ -40,8 +40,8 @@ console.log(result2D);
 
 console.log('-Exercise 2.e:');
 
-var stringA = "One more time, this is large";
-var result2E = stringA.indexOf(" ");
+var stringA = 'One more time, this is large';
+var result2E = stringA.indexOf(' ');
 
 console.log(result2E);
 
@@ -49,7 +49,7 @@ console.log(result2E);
 
 console.log('-Exercise 2.f:');
 
-var stringA = 'incoMpreHeNsibly flabBerGasTed'
+var stringA = 'incoMpreHeNsibly flabBerGasTed';
 var result2F = stringA.substring(0,1).toUpperCase()+
     stringA.substring(1,stringA.indexOf(' ')).toLowerCase()+
     ' '+
