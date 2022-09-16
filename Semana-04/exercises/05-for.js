@@ -5,7 +5,7 @@ console.log('--EXERCISE 5: FOR');
 console.log('-Exercise 5.a:');
 
 var arrayWords = ['hello', 'world', 'read', 'this', 'array'];
-for (let i = 0; i < arrayWords.length; i++) {
+for (var i = 0; i < arrayWords.length; i++) {
     alert(arrayWords[i]);
 }
 
@@ -14,7 +14,7 @@ for (let i = 0; i < arrayWords.length; i++) {
 console.log('-Exercise 5.b:');
 
 var arrayWordsToUpper = [];
-for (let i = 0; i < arrayWords.length; i++) {
+for (var i = 0; i < arrayWords.length; i++) {
     var wordToUpper = arrayWords[i].substring(0,1).toUpperCase()+(arrayWords[i].substring(1).toLowerCase());
     arrayWordsToUpper.push(wordToUpper);
     alert(arrayWordsToUpper[i]);
@@ -25,7 +25,7 @@ for (let i = 0; i < arrayWords.length; i++) {
 console.log('-Exercise 5.c:');
 
 var sentence = '';
-for (let i = 0; i < arrayWords.length; i++) {
+for (var i = 0; i < arrayWords.length; i++) {
     sentence = sentence + arrayWords[i] + ' ';
     if(i == arrayWords.length-1){
         alert(sentence)
@@ -37,7 +37,7 @@ for (let i = 0; i < arrayWords.length; i++) {
 console.log('-Exercise 5.d:');
 
 var arrayNumbers = [];
-for (let i = 0; i < 10; i++) {
+for (var i = 0; i < 10; i++) {
     arrayNumbers.push(i);
 };
 
