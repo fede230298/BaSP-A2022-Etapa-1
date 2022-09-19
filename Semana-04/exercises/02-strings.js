@@ -59,7 +59,8 @@ console.log(result2E);
 console.log('-Exercise 2.f:');
 
 var stringA = 'incoMpreHeNsibly flabBerGasTed';
-var result2F = stringA.substring(0,1).toUpperCase()+
+var result2F =
+    stringA.substring(0,1).toUpperCase()+
     stringA.substring(1,stringA.indexOf(' ')).toLowerCase()+
     ' '+
     stringA.substring(((stringA.indexOf(' '))+1),((stringA.indexOf(' '))+2)).toUpperCase()+

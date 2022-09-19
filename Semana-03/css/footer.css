@@ -1,5 +1,3 @@
-/* Footer */
-
 footer{
     background-color: #AACE9B;
     text-align: center;
@@ -7,8 +5,8 @@ footer{
 
 .footer-img-container{
     display: flex;
-    padding: 15px;
     justify-content: center;
+    padding: 15px;
 }
 
 .footer-img{

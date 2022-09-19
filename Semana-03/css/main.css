@@ -1,5 +1,3 @@
-/* Main Section */
-
 main h2{
     color: #000000;
     text-align: center;
@@ -7,13 +5,8 @@ main h2{
     font-size: 35px;
 }
 
-#sidebar li{
-    padding: 10px 0px;
-}
-
-#sidebar li p {
-    display: inline-block;
-    padding: 0px 0px 0px 10px;
+figure{
+    display: none;
 }
 
 #who-section p{
@@ -92,11 +85,11 @@ main h2{
 
 .card-box{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     margin: auto;
     padding: 15px 0px;
-    flex-direction: row;
-    flex-wrap: wrap;
     box-sizing: content-box;
 }
 
@@ -111,9 +104,9 @@ main h2{
 
 .card-image-container{
     display: flex;
-    width: 40%;
     justify-content: space-around;
     align-items: center;
+    width: 40%;
 }
 
 .card-text-box{
@@ -126,23 +119,20 @@ main h2{
 }
 
 .box-60p{
-    display: flex;
-    width: 60%;
-    flex-direction: column;
-    justify-content: center;
+    display: block;
+    width: 100%;
 }
 
-/* Functionalities */
-.f-container{
+.functionalities-container{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     width: auto;
     height: auto;
     padding: 5px 10px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
-.f-container h3{
+.functionalities-container h3{
     font-size: 30px;
     text-align: center;
 }
@@ -151,7 +141,7 @@ h3:hover{
     color: #f13312;
 }
 
-.f-container p {
+.functionalities-container p {
     font-size: 20px;
     text-align: justify;
 }
@@ -159,19 +149,18 @@ h3:hover{
 .element-container{
     display: flex;
     flex-wrap: wrap;
-    height: auto;
-    /* padding: 10px; */
     justify-content: space-evenly;
+    height: auto;
 }
 
 .img-container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     min-width: 150px;
     width: 20%;
     height: auto;
     padding: 10px;
-    justify-content: space-evenly;
 }
 
 .img-container-100{
@@ -192,11 +181,11 @@ h3:hover{
 
 .text-container{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     width: 70%;
     height: auto;
     padding: 10px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 .block-f-img-bg-hl{
@@ -256,21 +245,19 @@ h3:hover{
     justify-content: space-between;
 }
 
-/* Contact */
-
 .form-box{
     display: flex;
-    width: 100%;
-    height: auto;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
+    height: auto;
 }
 
 .form-container{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     height: auto;
-    flex-wrap: wrap;
     padding: 10px;
 }
 
@@ -292,20 +279,20 @@ h3:hover{
 
 .form-message-container{
     display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
     width: 100%;
     height: auto;
     padding: 10px;
-    flex-wrap: wrap;
-    justify-content:flex-start;
 }
 
 .form-button-container{
     display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
     width: 100%;
     height: auto;
     padding: 10px;
-    flex-wrap: wrap;
-    justify-content:space-between;
 }
 
 .form-input{
@@ -364,13 +351,11 @@ input[type=text], select {
     background-color: #f13412af;
 }
 
-/* List */
-
 .list-container{
     display: flex;
-    padding: 10px;
     flex-wrap: wrap;
     justify-content:space-evenly;
+    padding: 10px;
     background-image: url(../assets/img/list-picture.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -412,14 +397,6 @@ input[type=text], select {
     color: #f13312;
 }
 
-/* Media Queries */
-
-@media (max-width : 765px){
-    .block{
-        width: 100%;
-    }
-}
-
 @media (min-width: 480px) {
     .form-container{
         width: 45%;
@@ -442,27 +419,19 @@ input[type=text], select {
     }
 }
 
-@media (max-width: 1023px) {
-
-    figure{
-        display: none;
-    }
-    .box-60p{
-        display: block;
-        width: 100%;
-    }
-}
-
 @media (min-width: 768px) {
     .f-container .element-container{
         width: 50%;
     }
-
 }
 
 @media (min-width: 1024px){
     header, main, footer{
         margin-left: 160px;
+    }
+
+    figure{
+        display: block;
     }
 
     #who-section p{
@@ -476,6 +445,13 @@ input[type=text], select {
 
     .card-box{
         width: 95%;
+    }
+
+    .box-60p{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 60%;
     }
 
     .element-container > .text-container{
