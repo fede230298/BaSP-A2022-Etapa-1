@@ -14,13 +14,6 @@
 
 aside{
     display: none;
-    position: fixed;
-    width: 160px;
-    height: 100vh;
-    margin-top: 0;
-    margin-left: 0;
-    flex-direction: column;
-    color: #f13312;
 }
 
 aside a:hover{
@@ -109,5 +102,12 @@ aside .sidebar-contact ul{
 
     aside{
         display: flex;
+        position: fixed;
+        flex-direction: column;
+    width: 160px;
+    height: 100vh;
+    margin-top: 0;
+    margin-left: 0;
+    color: #f13312;
     }
 }

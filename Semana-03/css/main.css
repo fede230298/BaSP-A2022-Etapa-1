@@ -188,56 +188,12 @@ h3:hover{
     padding: 10px;
 }
 
-.block-f-img-bg-hl{
-    width: auto;
-    height: auto;
-    background-image: url(/Semana-02/assets/img/icons/hours-log.png);
-    background-size:cover;
-}
+.icon:hover rect, .icon:hover circle, .icon:hover path, .icon:hover line{
+    stroke: red;
+  }
 
-.block-f-img-bg-hl:hover{
-    background-image: url(/Semana-02/assets/img/icons/hours-log-hover.png);
-}
-
-.block-f-img-bg-hl{
-    display: flex;
-    width: 142px;
-    height: 142px;
-    background-image: url("../assets/img/icons/hours-log.png");
-}
-
-.block-f-img-bg-hl:hover{
-    background-image: url("../assets/img/icons/hours-log-hover.png");
-}
-
-.block-f-img-bg-mr{
-    width: 142px;
-    height: 142px;
-    background-image: url("../assets/img/icons/multiple-roles.png");
-}
-
-.block-f-img-bg-mr:hover{
-    background-image: url("../assets/img/icons/multiple-roles-hover.png");
-}
-
-.block-f-img-bg-r{
-    width: 142px;
-    height: 142px;
-    background-image: url("../assets/img/icons/reports.png");
-}
-
-.block-f-img-bg-r:hover{
-    background-image: url("../assets/img/icons/reports-hover.png");
-}
-
-.block-f-img-bg-rm{
-    width: 142px;
-    height: 142px;
-    background-image: url("../assets/img/icons/resource-managemet.png");
-}
-
-.block-f-img-bg-rm:hover{
-    background-image: url("../assets/img/icons/resource-management-hover.png");
+.icon:hover .icon-fill{
+    fill: red;
 }
 
 .list-text-container{
