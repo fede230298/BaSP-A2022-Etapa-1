@@ -15,11 +15,9 @@ for (var i = 0; i < arrayWords.length; i++) {
 
 console.log('-Exercise 5.b:');
 
-var arrayWordsToUpper = [];
 for (var i = 0; i < arrayWords.length; i++) {
-    var wordToUpper = arrayWords[i].substring(0,1).toUpperCase()+(arrayWords[i].substring(1).toLowerCase());
-    arrayWordsToUpper.push(wordToUpper);
-    alert(arrayWordsToUpper[i]);
+    arrayWords[i] = arrayWords[i][0].toUpperCase() + arrayWords[i].substring(1).toLowerCase()
+    alert(arrayWords[i]);
 }
 
 // c Crear una variable llamada “sentence” que tenga un string vacío, luego al array del punto a) recorrerlo con un

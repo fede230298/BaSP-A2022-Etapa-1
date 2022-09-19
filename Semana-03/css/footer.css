@@ -3,7 +3,7 @@ footer{
     text-align: center;
 }
 
-.footer-img-container{
+#footer-img-container{
     display: flex;
     justify-content: center;
     padding: 15px;
