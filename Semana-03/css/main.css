@@ -31,7 +31,7 @@ input[type=text], select {
 #who-section p{
     height: auto;
     padding: 10px 0px;
-    font-size: 20px;
+    font-size: 16px;
     text-align: justify;
     line-height: 1.5;
 }
@@ -49,7 +49,7 @@ input[type=text], select {
 }
 
 #why-section p{
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.5;
 }
 
@@ -128,15 +128,6 @@ input[type=text], select {
     width: 40%;
 }
 
-.card-text-box{
-    display: flex;
-}
-
-.card-text-container{
-    line-height: 1.5;
-    padding: 30px 0px
-}
-
 .box-60p{
     display: block;
     width: 100%;
@@ -159,7 +150,7 @@ input[type=text], select {
 
 
 .functionalities-container p {
-    font-size: 20px;
+    font-size: 16px;
     text-align: justify;
 }
 
@@ -188,10 +179,6 @@ input[type=text], select {
     padding: 50px 10px;
 }
 
-.text-box > .text-container{
-    width: 100%;
-}
-
 .element-container > .text-container{
     width: 100%
 }
@@ -211,11 +198,6 @@ input[type=text], select {
 
 .icon:hover .icon-fill{
     fill: red;
-}
-
-.list-text-container{
-    display: flex;
-    justify-content: space-between;
 }
 
 .form-box{
@@ -287,7 +269,6 @@ input[type=text], select {
     font-size: 15px;
     font-family: 'Roboto', 'sans-serif';
     white-space: nowrap;
-    vertical-align: middle;
     cursor: pointer;
 }
 
@@ -321,7 +302,7 @@ input[type=text], select {
 
 .list-container h4{
     color: #373867;
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -339,6 +320,7 @@ input[type=text], select {
 
 .list-container ol > li > a{
     display: block;
+    font-size: 12px;
     color: #373867;
 }
 
@@ -394,15 +376,12 @@ input[type=text], select {
 
     #who-section p{
         text-align: center;
+        font-size: 20px;
     }
 
     #why-section p{
-        font-size: 25px;
+        font-size: 20px;
         line-height: 1.5;
-    }
-
-    #why-section .card-box{
-        width: 90%;
     }
 
     .box-60p{
@@ -412,12 +391,24 @@ input[type=text], select {
         width: 60%;
     }
 
+    .functionalities-container p{
+        font-size: 20px;
+    }
+
     .element-container > .text-container{
         width: 100%
     }
 
     .list-container{
         padding: 15px 100px;
+    }
+
+    .list-container h4{
+        font-size: 25px;
+    }
+
+    .list-container ol > li > a{
+        font-size: 16px;
     }
 }
 

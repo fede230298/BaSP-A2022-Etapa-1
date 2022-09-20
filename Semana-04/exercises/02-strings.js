@@ -6,9 +6,10 @@ console.log('--EXERCISE 2: STRINGS');
 console.log('-Exercise 2.a:');
 
 var stringA = 'Hello, this string has more than 10 characters';
-var result2A = stringA.toUpperCase();
+var stringA = stringA.toUpperCase();
+/* var result2A = stringA.toUpperCase(); */
 
-console.log(result2A);
+console.log(stringA);
 
 // b Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string con los primeros 5
 // caracteres guardando el resultado en una nueva variable (utilizar substring).

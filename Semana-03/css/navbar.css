@@ -10,7 +10,7 @@ aside li{
     padding: 10px 0px;
 }
 
-aside li p {
+aside li p{
     display: inline-block;
     padding: 0px 0px 0px 10px;
 }
@@ -33,14 +33,14 @@ aside ul{
     color: #49A37B;
 }
 
-#logo{
+aside img{
     display: block;
     margin: auto;
     padding: 15px 0px;
 }
 
 #sidebar-logo-bg{
-    background-color: rgb(55, 56, 103, 0.4);
+    background-color: rgba(55, 56, 103, 0.4);
 }
 
 .sidebar-contact{
@@ -54,10 +54,6 @@ aside .sidebar-contact ul{
 .sidebar-title{
     color: rgb(55, 56, 103);
     font-size: 20px;
-}
-
-.sidebar-nav-list{
-    margin-top: 25px;
 }
 
 .sidebar-btn-text{
@@ -100,11 +96,11 @@ aside .sidebar-contact ul{
         display: flex;
         position: fixed;
         flex-direction: column;
-    width: 160px;
-    height: 100vh;
-    margin-top: 0;
-    margin-left: 0;
-    color: #f13312;
+        width: 160px;
+        height: 100vh;
+        margin-top: 0;
+        margin-left: 0;
+        color: #f13312;
     }
     #ham-menu{
         display: none;

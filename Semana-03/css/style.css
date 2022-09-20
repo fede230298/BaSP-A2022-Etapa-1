@@ -13,7 +13,7 @@ main{
 }
 
 h1{
-    width: 120%;
+    width: 110%;
     border-bottom: solid 3px #AACE9B;
     font-size: 40px;
     color: #ffffff;
@@ -50,4 +50,10 @@ a{
 
 .fa-brands:hover{
     color: red;
+}
+
+@media (min-width:1024px) {
+    h1{
+        width: 120%;
+    }
 }

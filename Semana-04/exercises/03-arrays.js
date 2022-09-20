@@ -26,13 +26,41 @@ console.log(arrayMonths[4] + ' ' + arrayMonths[10]);
 
 console.log('-Exercise 3.b:');
 
+var arrayMonths = [
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre'
+];
+
 console.log(arrayMonths.sort());
 
 // c Agregar un elemento al principio y al final del array (utilizar unshift y push).
 
 console.log('-Exercise 3.c:');
 
-
+var arrayMonths = [
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre'
+];
 arrayMonths.unshift('I am first');
 arrayMonths.push('I am last');
 

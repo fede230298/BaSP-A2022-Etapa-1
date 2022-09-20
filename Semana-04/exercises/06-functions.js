@@ -5,28 +5,27 @@ console.log('--EXERCISE 6: FUNCTIONS');
 
 console.log('-Exercise 6.a:');
 
-function addNumbers(numA, numB){
+function addNumbersA(numA, numB){
     return numA + numB;
 };
-var resultA = addNumbers(5,10);
+var resultA = addNumbersA(5,10);
 
-console.log(resultA)
+console.log(resultA);
 
 // b A la función suma anterior, agregarle una validación para controlar si alguno de los parámetros no es un número; de
 // no ser un número, mostrar una alerta aclarando que uno de los parámetros tiene error y retornar el valor NaN como resultado.
 
 console.log('-Exercise 6.b:');
 
-function addNumbers(numA, numB){
+function addNumbersB(numA, numB){
     if(isNaN(numA) || isNaN(numB)){
-        alert ('One of the parameters is not a number')
-        return alert(NaN)
+        alert ('One of the parameters is not a number');
+        return (NaN);
     }
     return numA + numB;
 };
 
-console.log(addNumbers(5,10));
-console.log(addNumbers(5,'string'));
+console.log(addNumbersB(5,'string'));
 
 // c Aparte, crear una función validate Integer que reciba un número como parámetro y devuelva verdadero si es un número
 // entero.
@@ -34,11 +33,10 @@ console.log(addNumbers(5,'string'));
 console.log('-Exercise 6.c:');
 
 function validateInteger(num){
-    return Number.isInteger(num)
-}
+    return Number.isInteger(num);
+};
 
-console.log(validateInteger(5))
-console.log(validateInteger(5.1))
+console.log(validateInteger(5.1));
 
 // d A la función suma del ejercicio 6b) agregarle una llamada a la función del ejercicio 6c. y que valide que los
 // números sean enteros. En caso que haya decimales mostrar un alerta con el error y retornar el número convertido
@@ -46,9 +44,9 @@ console.log(validateInteger(5.1))
 
 console.log('-Exercise 6.d:');
 
-function addNumbers(numA, numB){
+function addNumbersD(numA, numB){
     if(isNaN(numA) || isNaN(numB)){
-        alert ('One of the parameters is not a number')
+        alert ('One of the parameters is not a number');
         return NaN;
     };
     if (validateInteger(numA) == false){
@@ -62,7 +60,7 @@ function addNumbers(numA, numB){
     return numA + numB;
 };
 
-console.log(addNumbers(5,9.5))
+console.log(addNumbersD(5,9.5));
 
 // e Convertir la validación del ejercicio 6d) en una función separada y llamarla dentro de la función suma probando
 // que todo siga funcionando igual.
@@ -70,23 +68,19 @@ console.log(addNumbers(5,9.5))
 console.log('-Exercise 6.e:');
 
 function roundNumber(num){
-    if (validateInteger(num) == false){
+    if(!validateInteger(num)){
         alert('The number: '+ num + ' is not integer. It will be rounded');
-        num = Math.round(num);
+        return Math.round(num);
     };
+    return num;
 }
 
-function addNumbers(numA, numB){
+function addNumbersE(numA, numB){
     if(isNaN(numA) || isNaN(numB)){
         alert ('One of the parameters is not a number');
         return NaN;
     };
-    roundNumber(numA);
-    roundNumber(numB);
-    return numA + numB;
+    return roundNumber(numA) + roundNumber(numB);
 };
-
-console.log(addNumbers(5,15));
-console.log(addNumbers(5.5,15));
-console.log(addNumbers(5.5,15.6));
-console.log(addNumbers(5.5,'string'));
+console.log(addNumbersE(5.5,15));
+console.log(addNumbersE(5.5,'string'));
