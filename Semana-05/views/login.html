@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e6ef25705a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <script src="../javascript/login.js"></script>
+    <title>LogIn</title>
+</head>
+<body>
+    <aside>
+        <div id="sidebar-logo-bg">
+            <img src="../assets/img/icons/logo.png" alt="Trackgenix RR Logo">
+            <p class="text-center sidebar-title">Trackgenix</p>
+        </div>
+        <div class="sidebar-nav-container">
+            <nav>
+                <ul>
+                    <li class="sidebar-nav">
+                        <a href="./index.html" class="sidebar-btn-text">
+                            <i class="fa-solid fa-house-user"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav">
+                        <a href="./sign-up.html" class="sidebar-btn-text">
+                            <i class="fa-solid fa-user"></i>
+                            <p>Sign Up</p>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav">
+                        <a href="#" class="sidebar-btn-text">
+                            <i class="fa-solid fa-user"></i>
+                            <p>LogIn</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-contact">
+                <p class="text-underline">Contact Us</p>
+                <ul>
+                    <li class="sidebar-contact-li">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>trackgenix@gmail.com</p>
+                    </li>
+                    <li class="sidebar-contact-li">
+                        <i class="fa-solid fa-phone fa-1x"></i>
+                        <p>(000) 000-0000</p>
+                    </li>
+                    <li class="sidebar-contact-li">
+                        <i class="fa-solid fa-building fa-1x"></i>
+                        <p>1234 Somewhere Road #8254 Nashville, TN 00000-0000</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <section id="ham-menu">
+        <a href="#"><i class="fa-solid fa-bars"></i></a>
+    </section>
+    <section id="login">
+        <div>
+            <h2>Welcome!</h2>
+            <p>Please enter your details</p>
+        </div>
+        <form>
+            <div id="email-container" class="form-container">
+                <label for="Email" class="form-text">Email</label>
+                <input id="email" type="text" placeholder="Enter your Email" class="form-input">
+            </div>
+            <div id="password-container" class="form-container">
+                <label for="Password" class="form-text">Password</label>
+                <input id="password" type="password" placeholder="Enter your Password" class="form-input">
+            </div>
+            <div>
+                <div>
+                    <input type="checkbox" name="Show-Password" id="#">
+                    <label for="checkbox">Show Password</label>
+                </div>
+                <a href="#">Forgot Your Password?</a>
+            </div>
+            <button id="submit" class="btn btn-green" type="submit">Login</button>
+        </form>
+    </section>
+    <footer>
+        <div id="footer-img-container">
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-linkedin fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-facebook fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-twitter fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-github fa-2x"></i>
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>
+                Copyright © 2022 Radium Rocket. All rights reserved
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

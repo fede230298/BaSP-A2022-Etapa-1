@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+}
+
+#sign-up{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 15px 10px 15px;
+    padding: 0px 20px;
+}
+
+#sign-up h2, #sign-up p, #sign-up label{
+    color: #373867;
+}
+
+#sign-up h2, #sign-up p{
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    #sign-up{
+        margin-left: 160px;
+    }
+}
