@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = function() {
     console.log("Hola")
 
     var emailContainer = document.getElementById("email-container");
@@ -27,7 +27,7 @@ window.onload = () => {
         }
     }
 
-    email.onfocus = () => {
+    email.onfocus = function() {
         var invalidEmail = document.getElementsByClassName("invalid-email")
         invalidEmail[0].remove()
         email.classList.remove("form-input-invalid")
@@ -49,7 +49,7 @@ window.onload = () => {
         }
     }
 
-    password.onfocus = () => {
+    password.onfocus = function() {
         var invalidPassword = document.getElementsByClassName("invalid-password")
         invalidPassword[0].remove()
         password.classList.remove("form-input-invalid")

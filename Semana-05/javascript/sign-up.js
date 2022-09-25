@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = function() {
     var name = document.getElementById("name");
     var surname = document.getElementById("last-name");
     var dni = document.getElementById("dni");
@@ -21,31 +21,123 @@ window.onload = () => {
     var passwordContainer = document.getElementById("password-container");
     var passwordConfirmContainer = document.getElementById("password-repeat-container");
 
-    name.onblur = function nameValidation(){
-        var lastIndex = name.value.lastIndexOf();
-        console.log(name.value[0])
+    /* function testTrim(string){
+        if(string.trim() != string){
+            return false
+        }else{
+            return true
+        }
+    } */
 
-        if(isNaN(name.value) && name.value.length > 3 && !name.value.includes("  ")){
-            console.log(name.value.trim())
+    function hasNotBlankSpace(string){
+        if(string.trim() == string){
             return true
         }else{
-            var invalidName = document.createElement("p");
-            invalidName.innerText = "Invalid Name. Must be at least 4 character long";
-            invalidName.classList.add("invalid-input");
-            invalidName.classList.add("invalid-name");
-            name.classList.add("form-input-invalid");
-            nameContainer.append(invalidName);
             return false
         }
     }
 
-    name.onfocus = ()=>{
+    function containsNumber(string){
+        let string1 = String(string);
+        for( let i = 0; i < string1.length; i++){
+            if(!isNaN(string1.charAt(i)) && !(string1.charAt(i) === " ") /* && !(string1.charAt(i) === "+") && !(string1.charAt(i) === "-")  */){
+              return true;
+            }
+        }
+        return false;
+    }
+
+    name.onblur = function nameValidation(){
+        var validName = false;
+
+        if(!containsNumber(name.value)){
+            if(name.value.length > 3){
+                if(hasNotBlankSpace(name.value)){
+                    validName = true
+                }else{
+                    var invalidName = document.createElement("p");
+                    invalidName.innerText = "Invalid Name. There are blank spaces in one or both edges";
+                    invalidName.classList.add("invalid-input");
+                    invalidName.classList.add("invalid-name");
+                    name.classList.add("form-input-invalid");
+                    nameContainer.append(invalidName);
+                    validName = false
+                    return false
+                }
+            }else{
+                var invalidName = document.createElement("p");
+                invalidName.innerText = "Invalid Name. Must contain at least 4 letters";
+                invalidName.classList.add("invalid-input");
+                invalidName.classList.add("invalid-name");
+                name.classList.add("form-input-invalid");
+                nameContainer.append(invalidName);
+                validName = false
+                return false
+            }
+        }else{
+            var invalidName = document.createElement("p");
+            invalidName.innerText = "Invalid Name. It must be only letters";
+            invalidName.classList.add("invalid-input");
+            invalidName.classList.add("invalid-name");
+            name.classList.add("form-input-invalid");
+            nameContainer.append(invalidName);
+            validName = false
+            return false
+        }
+    }
+
+    name.onfocus = function(){
         var invalidName = document.getElementsByClassName("invalid-name")
         invalidName[0].remove()
         name.classList.remove("form-input-invalid")
     }
 
-    surname.onblur = function surnameValidation(){
+    surname.onblur = function(){
+        var validName = false;
+
+        if(!containsNumber(surname.value)){
+            if(surname.value.length > 3){
+                if(hasNotBlankSpace(surname.value)){
+                    validName = true
+                }else{
+                    var invalidSurname = document.createElement("p");
+                    invalidSurname.innerText = "Invalid Surname. There are blank spaces in one or both edges";
+                    invalidSurname.classList.add("invalid-input");
+                    invalidSurname.classList.add("invalid-surname");
+                    surname.classList.add("form-input-invalid");
+                    surnameContainer.append(invalidSurname);
+                    validName = false
+                    return false
+                }
+            }else{
+                var invalidSurname = document.createElement("p");
+                invalidSurname.innerText = "Invalid Surname. Must contain at least 4 letters";
+                invalidSurname.classList.add("invalid-input");
+                invalidSurname.classList.add("invalid-surname");
+                surname.classList.add("form-input-invalid");
+                surnameContainer.append(invalidSurname);
+                validName = false
+                return false
+            }
+        }else{
+            var invalidName = document.createElement("p");
+            invalidSurname.innerText = "Invalid Surname. It must be only letters";
+            invalidSurname.classList.add("invalid-input");
+            invalidSurname.classList.add("invalid-surname");
+            surname.classList.add("form-input-invalid");
+            surnameContainer.append(invalidSurname);
+            validName = false
+            return false
+        }
+    }
+
+    surname.onfocus = function(){
+        var invalidName = document.getElementsByClassName("invalid-surname")
+        invalidName[0].remove()
+        name.classList.remove("form-input-invalid")
+    }
+
+    /* surname.onblur = function surnameValidation(){
         if(surname.value.length > 3 ){
             return true
         }else{
@@ -59,11 +151,11 @@ window.onload = () => {
         }
     }
 
-    surname.onfocus = ()=>{
+    surname.onfocus = function(){
         var invalidSurName = document.getElementsByClassName("invalid-surname")
         invalidSurName[0].remove()
         name.classList.remove("form-input-invalid")
-    }
+    } */
 
     dni.onblur = function nameValidation(){
         if(dni.value.length >= 7 ){
@@ -89,7 +181,7 @@ window.onload = () => {
         }
     }
 
-    dni.onfocus = ()=>{
+    dni.onfocus = function(){
         var invalidDni = document.getElementsByClassName("invalid-dni")
         invalidDni[0].remove()
         dni.classList.remove("form-input-invalid")
@@ -119,7 +211,7 @@ window.onload = () => {
         }
     }
 
-    phone.onfocus = ()=>{
+    phone.onfocus = function(){
         var invalidPhone = document.getElementsByClassName("invalid-phone")
         invalidPhone[0].remove()
         phone.classList.remove("form-input-invalid")
@@ -127,22 +219,22 @@ window.onload = () => {
 
     address.onblur = function nameValidation(){
         var content = address.value.trim()
-        var hasNumbers = false;
-
-        for (var i = 0; i < content.length; i++) {
-            for (let j = 0; j < numbers.length; j++) {
-                if (content[i] == numbers[j]){
-                    hasNumbers = true
-                    break
-                }
-            }
-        }
 
         if(content.length > 4){
             if(isNaN(content)){
                 if(content.includes(" ")){
-                    if(hasNumbers){
-                        return true
+                    if(containsNumber(content)){
+                        if(hasNotBlankSpace(address.value)){
+                            return true
+                        }else{
+                            var invalidAddress = document.createElement("p");
+                            invalidAddress.innerText = "Invalid Address. There are blank spaces in one or both edges";
+                            invalidAddress.classList.add("invalid-input");
+                            invalidAddress.classList.add("invalid-address");
+                            address.classList.add("form-input-invalid");
+                            addressContainer.append(invalidAddress);
+                            return false
+                        }
                     }else{
                         var invalidAddress = document.createElement("p");
                         invalidAddress.innerText = "Invalid Address. Must contain at least 1 number";
@@ -181,17 +273,14 @@ window.onload = () => {
         }
     }
 
-    address.onfocus = ()=>{
+    address.onfocus = function(){
         var invalidAddress = document.getElementsByClassName("invalid-address")
         invalidAddress[0].remove()
         address.classList.remove("form-input-invalid")
     }
 
     city.onblur = function nameValidation(){
- /*        var lastIndex = name.value.lastIndexOf();
-        console.log(name.value[0]) */
-
-        if(isNaN(city.value) && city.value.length > 2 && !city.value.includes("  ")){
+        if(isNaN(city.value) && city.value.length > 3 && !city.value.includes("  ")){
             console.log(city.value.trim())
             return true
         }else{
@@ -205,7 +294,7 @@ window.onload = () => {
         }
     }
 
-    city.onfocus = ()=>{
+    city.onfocus = function(){
         var invalidCity = document.getElementsByClassName("invalid-city")
         invalidCity[0].remove()
         city.classList.remove("form-input-invalid")
@@ -235,7 +324,7 @@ window.onload = () => {
         }
     }
 
-    postalCode.onfocus = ()=>{
+    postalCode.onfocus = function(){
         var invalidPostalCode = document.getElementsByClassName("invalid-postalCode")
         invalidPostalCode[0].remove()
         postalCode.classList.remove("form-input-invalid")
@@ -257,7 +346,7 @@ window.onload = () => {
         }
     }
 
-    email.onfocus = () => {
+    email.onfocus = function() {
         var invalidEmail = document.getElementsByClassName("invalid-email")
         invalidEmail[0].remove()
         email.classList.remove("form-input-invalid")
@@ -277,7 +366,7 @@ window.onload = () => {
         }
     }
 
-    password.onfocus = () => {
+    password.onfocus = function() {
         var invalidPassword = document.getElementsByClassName("invalid-password")
         invalidPassword[0].remove()
         password.classList.remove("form-input-invalid")
@@ -315,10 +404,7 @@ window.onload = () => {
         }
     }
 
-    confirmPassword.onfocus = () =>{
-        var elementExist = !!document.getElementsByClassName("invalid-confirm-password");
-        console.log(!!document.getElementsByClassName("invalid-confirm-password"))
-
+    confirmPassword.onfocus = function(){
         if(elementExist == true){
             var invalidPassword = document.getElementsByClassName("invalid-confirm-password")
             invalidPassword[0].remove()
