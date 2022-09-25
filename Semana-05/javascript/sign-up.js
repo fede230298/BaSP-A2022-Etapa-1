@@ -280,12 +280,31 @@ window.onload = function() {
     }
 
     city.onblur = function nameValidation(){
-        if(isNaN(city.value) && city.value.length > 3 && !city.value.includes("  ")){
-            console.log(city.value.trim())
-            return true
+        if(isNaN(city.value)){
+            if(city.value.length > 3){
+                if(hasNotBlankSpace(city.value)){
+                    return true
+                }else{
+                    var invalidCity = document.createElement("p");
+                    invalidCity.innerText = "Invalid City Name. Invalid Address. There are blank spaces in one or both edges";
+                    invalidCity.classList.add("invalid-input");
+                    invalidCity.classList.add("invalid-city");
+                    city.classList.add("form-input-invalid");
+                    cityContainer.append(invalidCity);
+                    return false
+                }
+            }else{
+                var invalidCity = document.createElement("p");
+                invalidCity.innerText = "Invalid City Name. Must be at least 3 character long";
+                invalidCity.classList.add("invalid-input");
+                invalidCity.classList.add("invalid-city");
+                city.classList.add("form-input-invalid");
+                cityContainer.append(invalidCity);
+                return false
+            }
         }else{
             var invalidCity = document.createElement("p");
-            invalidCity.innerText = "Invalid City Name. Must be at least 3 character long";
+            invalidCity.innerText = "Invalid City Name. Must contain alphanumeric text";
             invalidCity.classList.add("invalid-input");
             invalidCity.classList.add("invalid-city");
             city.classList.add("form-input-invalid");
