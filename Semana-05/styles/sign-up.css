@@ -2,11 +2,52 @@
     margin: 0px;
 }
 
+h1{
+    font-size: 35px;
+    color: #373867;
+}
+
+h2{
+    font-size: 30px;
+    color: #373867;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+form div{
+    display: block;
+}
+
+form button{
+    margin: auto;
+    width: 80%;
+    align-self: center;
+}
+
 #sign-up{
     display: flex;
     flex-direction: column;
     margin: 0px 15px 10px 15px;
     padding: 0px 20px;
+}
+
+#sign-up form .form-container{
+    display: block;
+}
+
+#sign-up form > div:last-of-type{
+    margin-right: auto;
+}
+
+#sign-up form .invalid-input{
+    text-align: left;
+    font-size: 14px;
+    color: red;
 }
 
 #sign-up h2, #sign-up p, #sign-up label{

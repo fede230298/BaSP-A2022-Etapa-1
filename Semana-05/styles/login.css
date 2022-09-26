@@ -83,7 +83,7 @@ form div:nth-child(3){
     box-sizing: border-box;
 }
 
-.form-input-invalid{
+form input .form-input-invalid{
     display: inline-block;
     width: 100%;
     padding: 10px 12px;
