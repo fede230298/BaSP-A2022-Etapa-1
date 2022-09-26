@@ -1,91 +1,136 @@
 window.onload = function() {
-    console.log("Hola")
-
     var emailContainer = document.getElementById("email-container");
-
     var passwordContainer = document.getElementById("password-container")
 
     var email = document.getElementById("email");
-
     var password = document.getElementById("password");
 
     var submit = document.getElementById("submit");
 
-    email.onblur = function emailValidation(){
-        var validChar = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    function errorInput(param, invalidParam, invalidMessage, paramContainer, validation, inputName){
+        invalidParam.innerText = invalidMessage;
+        invalidParam.classList.add("invalid-input");
+        invalidParam.classList.add("invalid-" + inputName);
+        param.classList.add("form-input-invalid");
+        paramContainer.append(invalidParam);
+        validation = false;
+        return false;
+    };
 
-        if (email.value.match(validChar)){
-            return true
+    function correctInput(param, invalidParam){
+        invalidParam[0].remove();
+        param.classList.remove("form-input-invalid");
+    };
+
+    function OnlyNumbers(string){
+        var onlyNumbers = true;
+        var toString = String(string);
+        for (var i = 0; i < toString.length; i++) {
+            if(toString[i].charCodeAt(0) < 48 || toString[i].charCodeAt(0) > 57){
+                onlyNumbers = false;
+                break;
+            };
+        };
+        return onlyNumbers;
+    };
+
+    function onlyLetters(string){
+        var onlyLetter = true;
+        for (var i = 0; i < string.length; i++) {
+            var letterLower = string[i].toLowerCase();
+            var letterUpper = string[i].toUpperCase();
+            if (letterLower == letterUpper){
+                if (string[i] == " "){
+                    continue;
+                }
+                onlyLetter = false;
+                break;
+            };
+        };
+        return onlyLetter;
+    };
+
+    function alphanumericMandatory(string){
+        var letters = false;
+        var numbers = false;
+        var specialChar = false;
+        var alphanumeric = false;
+        for (var i = 0; i < string.length; i++) {
+            if(onlyLetters(string[i])){
+                if(letters == false){
+                    letters = true;
+                    continue;
+                };
+                continue;
+            }else if(OnlyNumbers(string[i])){
+                if(numbers == false){
+                    numbers = true;
+                    continue;
+                };
+                continue;
+            }else{
+                specialChar = true;
+                break;
+            };
+        };
+        if(letters == true && numbers == true && specialChar == false){
+            alphanumeric = true;
+        };
+        return alphanumeric;
+    }
+
+    var validEmail = false;
+    var validPassword = false;
+
+    email.onblur = function emailValidation(){
+        var inputName = Object.keys({email})[0];
+        var errors = ["Invalid Email"];
+        var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+
+        if(email.value.match(emailExpression)){
+            validEmail = true;
+            return true;
         }else{
             var invalidEmail = document.createElement("p");
-            invalidEmail.innerText = "Invalid Email";
-            invalidEmail.classList.add("invalid-input");
-            invalidEmail.classList.add("invalid-email");
-            email.classList.add("form-input-invalid");
-            emailContainer.append(invalidEmail);
-            return false
-        }
-    }
+            errorInput(email, invalidEmail, errors[0], emailContainer, validEmail, inputName);
+        };
+    };
 
     email.onfocus = function() {
-        var invalidEmail = document.getElementsByClassName("invalid-email")
-        invalidEmail[0].remove()
-        email.classList.remove("form-input-invalid")
-    }
+        var invalidEmail = document.getElementsByClassName("invalid-email");
+        correctInput(email, invalidEmail);
+    };
 
     password.onblur = function passwordValidation(){
-        var validChar = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]/
+        var inputName = Object.keys({password})[0];
+        var errors = ["Invalid Password. Must contain only alphanumeric characters including 1 letter and"+
+        " 1 number, no special characters allowed"];
 
-        if(password.value.match(validChar) && password.value.length >= 8){
-            return true
+        if(alphanumericMandatory(password.value)){
+            validPassword = true;
+            return true;
         }else{
             var invalidPassword = document.createElement("p");
-            invalidPassword.innerText = "Invalid Password";
-            invalidPassword.classList.add("invalid-input");
-            invalidPassword.classList.add("invalid-password");
-            password.classList.add("form-input-invalid");
-            passwordContainer.append(invalidPassword);
-            return false
-        }
-    }
+            errorInput(password, invalidPassword, errors[0], passwordContainer, validPassword, inputName);
+        };
+    };
 
-    password.onfocus = function() {
-        var invalidPassword = document.getElementsByClassName("invalid-password")
-        invalidPassword[0].remove()
-        password.classList.remove("form-input-invalid")
-    }
+    password.onfocus = function(){
+        var invalidPassword = document.getElementsByClassName("invalid-password");
+        correctInput(password, invalidPassword);
+    };
+
 
     submit.onclick = ((e)=>{
         e.preventDefault();
-        if(email.onblur() && password.onblur()){
+        if(validEmail == true && validPassword == true){
             alert("Email: " + email.value + " " + "Password: " + password.value)
+        }else if(validEmail == false && validPassword == false){
+            alert("Invalid Email and Mail")
+        }else if(validEmail == false && validPassword == true){
+            alert("Invalid Email")
         }else{
-            
+            alert("Invalid Password")
         }
     })
-
-
-    function emailValidation(){
-        var validChar = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-        if (email.value.match(validChar)){
-            alert("Valid email")
-            return true
-        }else{
-            alert("Invalid email")
-            return false
-        }
-    }
-
-    function passwordValidation(){
-        var validChar = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]/
-
-        if(password.value.match(validChar)){
-            alert("Valid password")
-            return true
-        }else{
-            alert("Invalid password")
-            return false
-        }
-    }
 }
