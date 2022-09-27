@@ -148,6 +148,7 @@ window.onload = function() {
                 if(hasNotBlankSpace(name.value)){
                     createCheck[0] = 0;
                     validName = true;
+                    return true;
                 }else{
                     createCheck[0] = 1;
                     var invalidName = document.createElement("p");
@@ -181,6 +182,7 @@ window.onload = function() {
             if(surname.value.length > 3){
                 if(hasNotBlankSpace(surname.value)){
                     createCheck[1] = 0;
+                    return true;
                 }else{
                     createCheck[1] = 1;
                     var invalidSurname = document.createElement("p");
@@ -207,12 +209,19 @@ window.onload = function() {
         var validDni = false;
         var inputName = Object.keys({dni})[0];
         var errors = ["Invalid DNI. Must be at least 7 character long and contain only numbers",
-        "Invalid DNI. It must contain only numbers"];
+        "Invalid DNI. It must contain only numbers",
+        "Invalid DNI. There are blank spaces in one or both edges"];
 
         if(dni.value.length >= 7 ){
             if(onlyNumbers(dni.value)){
-                createCheck[2] = 0;
-                return true;
+                if(hasNotBlankSpace(dni.value)){
+                    createCheck[2] = 0;
+                    return true;
+                }else{
+                    createCheck[2] = 1;
+                    var invalidDni = document.createElement("p");
+                    errorInput(dni, invalidDni, errors[2], dniContainer, validDni, inputName);
+                }
             }else{
                 createCheck[2] = 1;
                 var invalidDni = document.createElement("p");
@@ -261,12 +270,19 @@ window.onload = function() {
         var validPhone = false;
         var inputName = Object.keys({phone})[0];
         var errors = ["Invalid Phone. Must be 10 character long and contain only numbers",
-        "Invalid Phone. It must contain only numbers"];
+        "Invalid Phone. It must contain only numbers",
+        "Invalid Phone. There are blank spaces in one or both edges"];
 
         if(phone.value.length == 10 ){
             if(onlyNumbers(phone.value)){
-                createCheck[4] = 0;
-                return true;
+                if(hasNotBlankSpace(phone.value)){
+                    createCheck[4] = 0;
+                    return true;
+                }else{
+                    createCheck[4] = 1;
+                    var invalidPhone = document.createElement("p");
+                    errorInput(phone, invalidPhone, errors[2], phoneContainer, validPhone, inputName);
+                }
             }else{
                 createCheck[4] = 1;
                 var invalidPhone = document.createElement("p");
@@ -330,7 +346,7 @@ window.onload = function() {
         var inputName = Object.keys({city})[0];
         var errors = ["Invalid City Name. Must be at least 3 character long",
         "Invalid City Name. Must contain alphanumeric text",
-        "Invalid City Name. Invalid Address. There are blank spaces in one or both edges"];
+        "Invalid City Name. There are blank spaces in one or both edges"];
 
         if(city.value.length > 3){
             if(alphanumericOptional(city.value)){
@@ -363,12 +379,19 @@ window.onload = function() {
         var validPostalCode = false;
         var inputName = Object.keys({postalCode})[0];
         var errors = ["Invalid Phone. Must be between 4 and 5 character long and contain only numbers",
-        "Invalid Phone. It must contain only numbers"];
+        "Invalid Postal Code. It must contain only numbers",
+        "Invalid Postal Code. There are blank spaces in one or both edges"];
 
         if(postalCode.value.length > 3 && postalCode.value.length < 6){
             if(onlyNumbers(postalCode.value)){
-               createCheck[7] = 0;
-                return true;
+                if(hasNotBlankSpace(postalCode.value)){
+                    createCheck[7] = 0;
+                    return true;
+                }else{
+                    createCheck[7] = 1;
+                    var invalidPostalCode = document.createElement("p");
+                    errorInput(postalCode, invalidPostalCode, errors[2], postalCodeContainer, validPostalCode, inputName);
+                }
             }else{
                 createCheck[7] = 1;
                 var invalidPostalCode = document.createElement("p");
@@ -494,7 +517,7 @@ window.onload = function() {
             }
         };
         if(check == 0){
-            alert("Welcome, Your data is: \n" + 
+            alert("Welcome, Your data is: \n" +
             "Name: " + name.value + "\n" +
             "Surname: " + surname.value + "\n" +
             "DNI: " + dni.value + "\n" +
