@@ -92,6 +92,7 @@ window.onload = function() {
             return true;
         }else{
             var invalidEmail = document.createElement("p");
+            validEmail = false;
             errorInput(email, invalidEmail, errors[0], emailContainer, validEmail, inputName);
         };
     };
@@ -110,6 +111,7 @@ window.onload = function() {
             validPassword = true;
             return true;
         }else{
+            validPassword = false;
             var invalidPassword = document.createElement("p");
             errorInput(password, invalidPassword, errors[0], passwordContainer, validPassword, inputName);
         };
@@ -126,7 +128,7 @@ window.onload = function() {
         if(validEmail == true && validPassword == true){
             alert("Email: " + email.value + " " + "Password: " + password.value)
         }else if(validEmail == false && validPassword == false){
-            alert("Invalid Email and Mail")
+            alert("Invalid Email and Password")
         }else if(validEmail == false && validPassword == true){
             alert("Invalid Email")
         }else{
