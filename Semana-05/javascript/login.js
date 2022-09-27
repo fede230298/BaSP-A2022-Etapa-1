@@ -22,7 +22,7 @@ window.onload = function() {
         param.classList.remove("form-input-invalid");
     };
 
-    function OnlyNumbers(string){
+    function onlyNumbers(string){
         var onlyNumbers = true;
         var toString = String(string);
         for (var i = 0; i < toString.length; i++) {
@@ -62,7 +62,7 @@ window.onload = function() {
                     continue;
                 };
                 continue;
-            }else if(OnlyNumbers(string[i])){
+            }else if(onlyNumbers(string[i])){
                 if(numbers == false){
                     numbers = true;
                     continue;

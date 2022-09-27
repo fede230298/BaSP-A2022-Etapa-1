@@ -1,7 +1,10 @@
 window.onload = function() {
+    var createCheck = [1,1,1,1,1,1,1,1,1,1,1]
+
     var name = document.getElementById("name");
     var surname = document.getElementById("last-name");
     var dni = document.getElementById("dni");
+    var birthday = document.getElementById("birthday")
     var phone = document.getElementById("phone");
     var address = document.getElementById("address");
     var city = document.getElementById("city");
@@ -9,10 +12,12 @@ window.onload = function() {
     var email = document.getElementById("email");
     var password = document.getElementById("password");
     var confirmPassword = document.getElementById("password-repeat");
+    var submit = document.getElementById("submit");
 
     var nameContainer = document.getElementById("name-container");
     var surnameContainer = document.getElementById("surname-container");
     var dniContainer = document.getElementById("dni-container");
+    var birthdayContainer = document.getElementById("birthday-container")
     var phoneContainer = document.getElementById("phone-container");
     var addressContainer = document.getElementById("address-container");
     var cityContainer = document.getElementById("city-container");
@@ -29,29 +34,7 @@ window.onload = function() {
         };
     };
 
-    function containsNumber(string){
-        let string1 = String(string);
-        for(var i = 0; i < string1.length; i++){
-            if(!isNaN(string1.charAt(i)) && !(string1.charAt(i) === " ")){
-              return true;
-            };
-        };
-        return false;
-    };
-
-    function containsNumber(string){
-        var containsNumber = false;
-        let toString = String(toString);
-        for( let i = 0; i < string1.length; i++){
-            if(toString[i].charCodeAt(0) >= 48 && toString[i].charCodeAt(0) <= 57){
-                containsNumber = true;
-                break;
-            };
-        };
-        return containsNumber;
-    };
-
-    function OnlyNumbers(string){
+    function onlyNumbers(string){
         var onlyNumbers = true;
         var toString = String(string);
         for (var i = 0; i < toString.length; i++) {
@@ -71,9 +54,10 @@ window.onload = function() {
             if (letterLower == letterUpper){
                 if (string[i] == " "){
                     continue;
+                }else{
+                    onlyLetter = false;
+                    break;
                 }
-                onlyLetter = false;
-                break;
             };
         };
         return onlyLetter;
@@ -91,7 +75,7 @@ window.onload = function() {
                     continue;
                 };
                 continue;
-            }else if(OnlyNumbers(string[i])){
+            }else if(onlyNumbers(string[i])){
                 if(numbers == false){
                     numbers = true;
                     continue;
@@ -120,7 +104,7 @@ window.onload = function() {
                     continue;
                 };
                 continue;
-            }else if(OnlyNumbers(string[i])){
+            }else if(onlyNumbers(string[i])){
                 if(numbers == false){
                     numbers = true;
                     continue;
@@ -155,21 +139,27 @@ window.onload = function() {
     name.onblur = function nameValidation(){
         var validName = false;
         var inputName = Object.keys({name})[0];
-        var errors = ["Invalid Name. It must be only letters","Invalid Name. Must contain at least 4 letters","Invalid Name. There are blank spaces in one or both edges"];
+        var errors = ["Invalid Name. It must be only letters",
+        "Invalid Name. Must contain at least 4 letters",
+        "Invalid Name. There are blank spaces in one or both edges"];
 
         if(onlyLetters(name.value)){
             if(name.value.length > 3){
                 if(hasNotBlankSpace(name.value)){
+                    createCheck[0] = 0;
                     validName = true;
                 }else{
+                    createCheck[0] = 1;
                     var invalidName = document.createElement("p");
                     errorInput(name, invalidName, errors[2], nameContainer, validName, inputName);
                 };
             }else{
+                createCheck[0] = 1;
                 var invalidName = document.createElement("p");
                 errorInput(name, invalidName, errors[1], nameContainer, validName, inputName);
             };
         }else{
+            createCheck[0] = 1;
             var invalidName = document.createElement("p");
             errorInput(name, invalidName, errors[0], nameContainer, validName, inputName);
         };
@@ -180,26 +170,31 @@ window.onload = function() {
         correctInput(name, invalidName);
     };
 
-    surname.onblur = function(){
-        var validName = false;
+    surname.onblur = function surnameValidation(){
+        var validSurname = false;
         var inputName = Object.keys({surname})[0];
-        var errors = ["Invalid Surname. It must be only letters","Invalid Surname. Must contain at least 4 letters","Invalid Surname. There are blank spaces in one or both edges"];
+        var errors = ["Invalid Surname. It must be only letters",
+        "Invalid Surname. Must contain at least 4 letters",
+        "Invalid Surname. There are blank spaces in one or both edges"];
 
         if(onlyLetters(surname.value)){
             if(surname.value.length > 3){
                 if(hasNotBlankSpace(surname.value)){
-                    validName = true;
+                    createCheck[1] = 0;
                 }else{
+                    createCheck[1] = 1;
                     var invalidSurname = document.createElement("p");
-                    errorInput(surname, invalidSurname, errors[2], surnameContainer, validName, inputName);
+                    errorInput(surname, invalidSurname, errors[2], surnameContainer, validSurname, inputName);
                 };
             }else{
+                createCheck[1] = 1;
                 var invalidSurname = document.createElement("p");
-                errorInput(surname, invalidSurname, errors[1], surnameContainer, validName, inputName);
+                errorInput(surname, invalidSurname, errors[1], surnameContainer, validSurname, inputName);
             };
         }else{
+            createCheck[1] = 1;
             var invalidSurname = document.createElement("p");
-            errorInput(surname, invalidSurname, errors[0], surnameContainer, validName, inputName);
+            errorInput(surname, invalidSurname, errors[0], surnameContainer, validSurname, inputName);
         };
     };
 
@@ -208,20 +203,23 @@ window.onload = function() {
         correctInput(surname, invalidName);
     };
 
-    dni.onblur = function nameValidation(){
+    dni.onblur = function dniValidation(){
         var validDni = false;
         var inputName = Object.keys({dni})[0];
         var errors = ["Invalid DNI. Must be at least 7 character long and contain only numbers",
         "Invalid DNI. It must contain only numbers"];
 
         if(dni.value.length >= 7 ){
-            if(OnlyNumbers(dni.value)){
+            if(onlyNumbers(dni.value)){
+                createCheck[2] = 0;
                 return true;
             }else{
+                createCheck[2] = 1;
                 var invalidDni = document.createElement("p");
                 errorInput(dni, invalidDni, errors[1], dniContainer, validDni, inputName);
             };
         }else{
+            createCheck[2] = 1;
             var invalidDni = document.createElement("p");
             errorInput(dni, invalidDni, errors[0], dniContainer, validDni, inputName);
         };
@@ -232,20 +230,50 @@ window.onload = function() {
         correctInput(dni, invalidDni);
     };
 
-    phone.onblur = function nameValidation(){
+    birthday.onblur = function birthdayValidation(){
+        var validBirthday = false;
+        var inputName = Object.keys({birthday})[0];
+        var errors = ["Invalid Birthday. Please complete the input",
+        "Invalid Birthday. The year must be 4 character long"];
+
+        if(birthday.value != ""){
+            if(birthday.value.length == 10){
+                createCheck[3] = 0;
+                return true;
+            }else{
+                createCheck[3] = 1;
+                var invalidBirthday = document.createElement("p");
+                errorInput(birthday, invalidBirthday, errors[1], birthdayContainer, validBirthday, inputName);
+            };
+        }else{
+            createCheck[3] = 1;
+            var invalidBirthday = document.createElement("p");
+            errorInput(birthday, invalidBirthday, errors[0], birthdayContainer, validBirthday, inputName);
+        }
+    };
+
+    birthday.onfocus = function(){
+        var invalidBirthday = document.getElementsByClassName("invalid-birthday");
+        correctInput(birthday, invalidBirthday);
+    };
+
+    phone.onblur = function phoneValidation(){
         var validPhone = false;
         var inputName = Object.keys({phone})[0];
         var errors = ["Invalid Phone. Must be 10 character long and contain only numbers",
         "Invalid Phone. It must contain only numbers"];
 
         if(phone.value.length == 10 ){
-            if(OnlyNumbers(phone.value)){
+            if(onlyNumbers(phone.value)){
+                createCheck[4] = 0;
                 return true;
             }else{
+                createCheck[4] = 1;
                 var invalidPhone = document.createElement("p");
                 errorInput(phone, invalidPhone, errors[1], phoneContainer, validPhone, inputName);
             };
         }else{
+            createCheck[4] = 1;
             var invalidPhone = document.createElement("p");
             errorInput(phone, invalidPhone, errors[0], phoneContainer, validPhone, inputName);
         };
@@ -256,7 +284,7 @@ window.onload = function() {
         correctInput(phone, invalidPhone);
     };
 
-    address.onblur = function nameValidation(){
+    address.onblur = function addressValidation(){
         var validAddress = false;
         var inputName = Object.keys({address})[0];
         var errors = ["Invalid Address. Must be at least 5 character long",
@@ -268,20 +296,25 @@ window.onload = function() {
             if(alphanumericMandatory(address.value)){
                 if(address.value.includes(" ")){
                     if(hasNotBlankSpace(address.value)){
+                        createCheck[5] = 0;
                         return true;
                     }else{
+                        createCheck[5] = 1;
                         var invalidAddress = document.createElement("p");
                         errorInput(address, invalidAddress, errors[3], addressContainer, validAddress, inputName);
                     };
                 }else{
+                    createCheck[5] = 1;
                     var invalidAddress = document.createElement("p");
                     errorInput(address, invalidAddress, errors[2], addressContainer, validAddress, inputName);
                 };
             }else{
+                createCheck[5] = 1;
                 var invalidAddress = document.createElement("p");
                 errorInput(address, invalidAddress, errors[1], addressContainer, validAddress, inputName);
             };
         }else{
+            createCheck[5] = 1;
             var invalidAddress = document.createElement("p");
             errorInput(address, invalidAddress, errors[0], addressContainer, validAddress, inputName);
         };
@@ -292,7 +325,7 @@ window.onload = function() {
         correctInput(address, invalidAddress);
     };
 
-    city.onblur = function nameValidation(){
+    city.onblur = function cityValidation(){
         var validCity = false;
         var inputName = Object.keys({city})[0];
         var errors = ["Invalid City Name. Must be at least 3 character long",
@@ -302,16 +335,20 @@ window.onload = function() {
         if(city.value.length > 3){
             if(alphanumericOptional(city.value)){
                 if(hasNotBlankSpace(city.value)){
+                    createCheck[6] = 0;
                     return true;
                 }else{
+                    createCheck[6] = 1;
                     var invalidCity = document.createElement("p");
                     errorInput(city, invalidCity, errors[2], cityContainer, validCity, inputName);
                 };
             }else{
+                createCheck[6] = 1;
                 var invalidCity = document.createElement("p");
                 errorInput(city, invalidCity, errors[1], cityContainer, validCity, inputName);
             };
         }else{
+            createCheck[6] = 1;
             var invalidCity = document.createElement("p");
             errorInput(city, invalidCity, errors[0], cityContainer, validCity, inputName);
         };
@@ -322,20 +359,23 @@ window.onload = function() {
         correctInput(city, invalidCity);
     };
 
-    postalCode.onblur = function nameValidation(){
+    postalCode.onblur = function postalValidation(){
         var validPostalCode = false;
         var inputName = Object.keys({postalCode})[0];
         var errors = ["Invalid Phone. Must be between 4 and 5 character long and contain only numbers",
         "Invalid Phone. It must contain only numbers"];
 
         if(postalCode.value.length > 3 && postalCode.value.length < 6){
-            if(OnlyNumbers(postalCode.value)){
+            if(onlyNumbers(postalCode.value)){
+               createCheck[7] = 0;
                 return true;
             }else{
+                createCheck[7] = 1;
                 var invalidPostalCode = document.createElement("p");
                 errorInput(postalCode, invalidPostalCode, errors[1], postalCodeContainer, validPostalCode, inputName);
             };
         }else{
+            createCheck[7] = 1;
             var invalidPostalCode = document.createElement("p");
             errorInput(postalCode, invalidPostalCode, errors[0], postalCodeContainer, validPostalCode, inputName);
         };
@@ -353,8 +393,10 @@ window.onload = function() {
         var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
         if(email.value.match(emailExpression)){
+            createCheck[8] = 0;
             return true;
         }else{
+            createCheck[8] = 1;
             var invalidEmail = document.createElement("p");
             errorInput(email, invalidEmail, errors[0], emailContainer, validEmail, inputName);
         };
@@ -375,13 +417,15 @@ window.onload = function() {
 
         if(password.value.length > 8){
             if(alphanumericMandatory(password.value)){
-                validEmail = true;
+                createCheck[9] = 0;
                 return true;
             }else{
+                createCheck[9] = 1;
                 var invalidPassword = document.createElement("p");
                 errorInput(password, invalidPassword, errors[1], passwordContainer, validPassword, inputName);
             };
         }else{
+            createCheck[9] = 1;
             var invalidPassword = document.createElement("p");
             errorInput(password, invalidPassword, errors[0], passwordContainer, validPassword, inputName);
         };
@@ -401,18 +445,21 @@ window.onload = function() {
 
         if(password.value == confirmPassword.value){
             if(confirmPassword.value.length == 0){
+                createCheck[10] = 1;
                 var invalidPassword = document.createElement("p");
                 errorInput
                 (confirmPassword, invalidPassword, errors[2], passwordConfirmContainer, validPassword, inputName);
             }else if(confirmPassword.value.length < 8){
+                createCheck[10] = 1;
                 var invalidPassword = document.createElement("p");
                 errorInput
                 (confirmPassword, invalidPassword, errors[1], passwordConfirmContainer, validPassword, inputName);
             }else{
-                validPassword = true;
+                createCheck[10] = 0;
                 return true;
             };
         }else{
+            createCheck[10] = 1;
             var invalidPassword = document.createElement("p");
             errorInput(confirmPassword, invalidPassword, errors[0], passwordConfirmContainer, validPassword, inputName);
         };
@@ -422,4 +469,46 @@ window.onload = function() {
         var invalidPassword = document.getElementsByClassName("invalid-confirmPassword");
         correctInput(confirmPassword, invalidPassword);
     };
-}
+
+    submit.onclick = function(e){
+        e.preventDefault();
+        var fields = [
+            "Name",
+            "Surname",
+            "DNI",
+            "Birthday",
+            "Phone",
+            "Address",
+            "City",
+            "Postal Code",
+            "Email",
+            "Password",
+            "Confirm Password"
+        ]
+        var invalidInputs = [];
+        var check = 0;
+        for (var i = 0; i < createCheck.length; i++) {
+            check += createCheck[i];
+            if(createCheck[i] == 1){
+                invalidInputs.push(fields[i])
+            }
+        };
+        if(check == 0){
+            alert("Welcome, Your data is: \n" + 
+            "Name: " + name.value + "\n" +
+            "Surname: " + surname.value + "\n" +
+            "DNI: " + dni.value + "\n" +
+            "Birthday: " + birthday.value + "\n" +
+            "Phone: " + phone.value + "\n" +
+            "Address: " + address.value + "\n" +
+            "City: " + city.value + "\n" +
+            "Postal Code: " + postalCode.value + "\n" +
+            "Email: " + email.value + "\n" +
+            "Password: " + password.value + "\n" +
+            "Confirm Password: " + name.value + "\n");
+        }else{
+            var invalidFields = invalidInputs.join("\n")
+            alert("Please check the incorrect inputs: \n" + invalidFields);
+        };
+    };
+};
