@@ -33,7 +33,7 @@ Deployed the repository in GitHub Pages. It can be opened by clicking the titles
 
 [https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-03/index.html](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-03/index.html)
 
-### Week4
+### Week 4
 
 In this week we practise the functionalities and use de JavaScript with a series of excercises, that includes:
 - Variables and Operators
@@ -44,5 +44,11 @@ In this week we practise the functionalities and use de JavaScript with a series
 - Functions
 
 [https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-04/index.html](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-04/index.html)
+
+### Week 5
+
+In this week we implemented two new html, one a sign up and the other a login form. Both with its inputs validated through Javascript. The main focus this week was to deeper understand and implement Javascript logic and manipulate the DOM.
+
+[https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-05/views/index.html](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-05/views/index.html)
 
 By Federico Peralta
