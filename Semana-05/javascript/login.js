@@ -123,7 +123,7 @@ window.onload = function() {
     };
 
 
-    submit.onclick = ((e)=>{
+    submit.onclick = (function(e){
         e.preventDefault();
         if(validEmail == true && validPassword == true){
             alert('Email: ' + email.value + ' ' + 'Password: ' + password.value)

@@ -38,48 +38,45 @@ window.onload = function() {
         return correctDateString
     };
 
-    if(localStorage.getItem('name')){
-        name.setAttribute('value', localStorage.getItem('name').slice(1,localStorage.getItem('name').length-1));
-        createCheck[0] = 0;
-    };
-    if(localStorage.getItem('lastName')){
-        surname.setAttribute('value', localStorage.getItem('lastName').slice(1,localStorage.getItem('lastName').length-1));
-        createCheck[1] = 0;
-    };
-    if(localStorage.getItem('dni')){
-        dni.setAttribute('value', localStorage.getItem('dni').slice(1,localStorage.getItem('dni').length-1));
-        createCheck[2] = 0;
-    };
-    if(localStorage.getItem('dob')){
+    function loadLocalStorage(input,localName,validationNumber){
+        input.setAttribute('value', localStorage.getItem(localName).slice(1,localStorage.getItem(localName).length-1));
+        createCheck[validationNumber] = 0;
+    }
+
+    function existLocalStorage(name){
+        if(localStorage.getItem(name)){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    if(localStorage.length == 10 &&
+        existLocalStorage('name') &&
+        existLocalStorage('lastName') &&
+        existLocalStorage('dni') &&
+        existLocalStorage('dob') &&
+        existLocalStorage('phone') &&
+        existLocalStorage('address') &&
+        existLocalStorage('city') &&
+        existLocalStorage('zip') &&
+        existLocalStorage('email') &&
+        existLocalStorage('password')){
+        loadLocalStorage(name,'name',0);
+        loadLocalStorage(surname,'lastName',1);
+        loadLocalStorage(dni,'dni',2);
         birthday.setAttribute('value', inputDate())
         createCheck[3] = 0;
+        loadLocalStorage(phone,'phone',4);
+        loadLocalStorage(address,'address',5);
+        loadLocalStorage(city,'city',6);
+        loadLocalStorage(postalCode,'zip',7);
+        loadLocalStorage(email,'email',8);
+        loadLocalStorage(password,'password',9);
+        loadLocalStorage(confirmPassword,'password',10);
     };
-    if(localStorage.getItem('phone')){
-        phone.setAttribute('value', localStorage.getItem('phone').slice(1,localStorage.getItem('phone').length-1));
-        createCheck[4] = 0;
-    };
-    if(localStorage.getItem('address')){
-        address.setAttribute('value', localStorage.getItem('address').slice(1,localStorage.getItem('address').length-1));
-        createCheck[5] = 0;
-    };
-    if(localStorage.getItem('city')){
-        city.setAttribute('value', localStorage.getItem('city').slice(1,localStorage.getItem('city').length-1));
-        createCheck[6] = 0;
-    };
-    if(localStorage.getItem('zip')){
-        postalCode.setAttribute('value', localStorage.getItem('zip').slice(1,localStorage.getItem('zip').length-1));
-        createCheck[7] = 0;
-    };
-    if(localStorage.getItem('email')){
-        email.setAttribute('value', localStorage.getItem('email').slice(1,localStorage.getItem('email').length-1));
-        createCheck[8] = 0;
-    };
-    if(localStorage.getItem('password')){
-        password.setAttribute('value', localStorage.getItem('password').slice(1,localStorage.getItem('password').length-1));
-        confirmPassword.setAttribute('value', localStorage.getItem('password').slice(1,localStorage.getItem('password').length-1));
-        createCheck[9] = 0;
-        createCheck[10] = 0;
-    };
+
+
 
     function hasNotBlankSpace(string){
         if(string.trim() == string){
@@ -591,8 +588,8 @@ window.onload = function() {
                 {
                 method: 'GET',
             })
-            .then(res => res.json())
-            .then(data =>{
+            .then(function(res) {res.json()})
+            .then(function(data){
                 alert(data.msg + "\n" +
                 "Your data is: "+ "\n" +
                 'Name: ' + JSON.stringify(data.data.name) + '\n' +

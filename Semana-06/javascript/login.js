@@ -125,14 +125,14 @@ window.onload = function() {
     };
 
 
-    submit.onclick = ((e)=>{
+    submit.onclick = (function(e){
         e.preventDefault();
         if(validEmail == true && validPassword == true){
             fetch(loginURL+"?email="+email.value+"&password="+password.value,{
                 method: 'GET',
             })
-            .then(res => res.json())
-            .then(data => alert(JSON.stringify(data.msg).slice(1,JSON.stringify(data.msg).length-1)))
+            .then(function(res) {res.json()})
+            .then(function(data) {alert(JSON.stringify(data.msg).slice(1,JSON.stringify(data.msg).length-1))})
             .catch(err = function(){
                 alert(err)
             })
