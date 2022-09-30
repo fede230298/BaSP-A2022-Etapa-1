@@ -51,4 +51,11 @@ In this week we implemented two new html, one a sign up and the other a login fo
 
 [https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-05/views/index.html](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-05/views/index.html)
 
+
+### Week 6
+
+In this week we implemented two new functionalities. Both require to fetch a url and send it with params through a GET request. One is for the login page, to see if the attempt to login is successful or not. The other is for the signup page, to see if the data sent match all the requirements necessary to create an account. Whatsmore, here if the "creation" is successful, the page sent us back a response with the data sent. That data is stored in the web localstorage to be later used if the webpage is refreshed and autocomplete all the fields.
+
+[https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-06/views/index.html](https://fede230298.github.io/BaSP-A2022-Etapa-1/Semana-06/views/index.html)
+
 By Federico Peralta

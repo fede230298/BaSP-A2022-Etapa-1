@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e6ef25705a.js" crossorigin="anonymous"></script>
+    <script src="../javascript/sign-up.js"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/sign-up.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <!-- <script src="../javascript/login.js"></script> -->
+    <title>Sign Up</title>
+</head>
+<body>
+    <aside>
+        <div id="sidebar-logo-bg">
+            <img src="../assets/img/icons/logo.png" alt="Trackgenix RR Logo">
+            <p class="text-center sidebar-title">Trackgenix</p>
+        </div>
+        <div class="sidebar-nav-container">
+            <nav>
+                <ul>
+                    <li class="sidebar-nav">
+                        <a href="./index.html" class="sidebar-btn-text">
+                            <i class="fa-solid fa-house-user"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav">
+                        <a href="#" class="sidebar-btn-text">
+                            <i class="fa-solid fa-user"></i>
+                            <p>Sign Up</p>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav">
+                        <a href="./login.html" class="sidebar-btn-text">
+                            <i class="fa-solid fa-user"></i>
+                            <p>LogIn</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-contact">
+                <p class="text-underline">Contact Us</p>
+                <ul>
+                    <li class="sidebar-contact-li">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>trackgenix@gmail.com</p>
+                    </li>
+                    <li class="sidebar-contact-li">
+                        <i class="fa-solid fa-phone fa-1x"></i>
+                        <p>(000) 000-0000</p>
+                    </li>
+                    <li class="sidebar-contact-li">
+                        <i class="fa-solid fa-building fa-1x"></i>
+                        <p>1234 Somewhere Road #8254 Nashville, TN 00000-0000</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <section id="ham-menu">
+        <a href="#"><i class="fa-solid fa-bars"></i></a>
+    </section>
+    <section id="sign-up">
+        <div>
+            <h2>Sign Up</h2>
+            <p>Create an account and start working!</p>
+        </div>
+        <form>
+            <div id="name-container" class="form-container">
+                <label for="name" class="form-text">Name</label>
+                <input id="name" type="text" placeholder="Name..." class="form-input">
+            </div>
+            <div id="surname-container" class="form-container">
+                <label for="lastName" class="form-text">Last Name</label>
+                <input id="last-name" type="text" placeholder="Last Name..." class="form-input">
+            </div>
+            <div id="dni-container" class="form-container">
+                <label for="dni" class="form-text">DNI</label>
+                <input id="dni" type="text" placeholder="DNI..." class="form-input">
+            </div>
+            <div id="birthday-container" class="form-container">
+                <label for="birthday" class="form-text">Birthday</label>
+                <input id="birthday" type="date" placeholder="Birthday" class="form-input">
+            </div>
+            <div id="phone-container" class="form-container">
+                <label for="phone" class="form-text">Phone</label>
+                <input id="phone" type="text" placeholder="Phone Number..." class="form-input">
+            </div>
+            <div id="address-container" class="form-container">
+                <label for="address" class="form-text">Address</label>
+                <input id="address" type="text" placeholder="Address" class="form-input">
+            </div>
+            <div id="city-container" class="form-container">
+                <label for="city" class="form-text">City</label>
+                <input id="city" type="text" placeholder="City..." class="form-input">
+            </div>
+            <div id="postal-code-container" class="form-container">
+                <label for="postal-code" class="form-text">Postal Code</label>
+                <input id="postal-code" type="text" placeholder="Postal Code..." class="form-input">
+            </div>
+            <div id="email-container" class="form-container">
+                <label for="Email" class="form-text">Email</label>
+                <input id="email" type="text" placeholder="Enter your Email" class="form-input">
+            </div>
+            <div id="password-container" class="form-container">
+                <label for="password" class="form-text">Password</label>
+                <input id="password" type="password" placeholder="Password..." class="form-input">
+            </div>
+            <div id="password-repeat-container" class="form-container">
+                <label for="password-repeat" class="form-text">Confirm Password</label>
+                <input id="password-repeat" type="password" placeholder="Confirm Password..." class="form-input">
+            </div>
+            <button id="submit" class="btn btn-green" type="submit">Create</button>
+        </form>
+    </section>
+    <footer>
+        <div id="footer-img-container">
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-linkedin fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-facebook fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-twitter fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+            <a href="#" class="footer-img">
+                <i class="fa-brands fa-github fa-2x"></i>
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>
+                Copyright © 2022 Radium Rocket. All rights reserved
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

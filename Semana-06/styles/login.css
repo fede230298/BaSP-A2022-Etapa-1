@@ -1,0 +1,172 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 100vh;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+a{
+    color: #373867;
+    text-decoration: none;
+}
+
+h1{
+    font-size: 35px;
+    color: #373867;
+}
+
+h2{
+    font-size: 30px;
+    color: #373867;
+}
+
+#main-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 15px;
+    padding: 0px 20px;
+    width: 80%
+}
+
+#login h2, #login p, #login label{
+    color: #373867;
+}
+
+#login h2, #login p{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+}
+
+form div:nth-child(3){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 10px 0px;
+}
+
+.form-text{
+    font-style: normal;
+    font-size: 15px;
+}
+
+.form-input{
+    display: inline-block;
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px #373867 solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form .form-container input[type=text] .form-input-invalid{
+    display: inline-block;
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 2px red solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button{
+    margin: 10px 0px;
+}
+
+.btn{
+    display: inline-block;
+    padding: 10px 15px;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Roboto', 'sans-serif';
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.btn-green{
+    background-color: #AACE9B;
+    color:#fff;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+}
+
+footer p{
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+}
+
+#footer-img-container{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.footer-img{
+    margin: 0px 20px;
+}
+
+#login form .invalid-input{
+    text-align: left;
+    font-size: 14px;
+    color: red;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+header > div, header > h2{
+    padding: 5px 0px;
+}
+
+header h2{
+    display: flex;
+    align-self: center;
+}
+
+#logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    #login{
+        margin-left: 160px;
+    }
+}
