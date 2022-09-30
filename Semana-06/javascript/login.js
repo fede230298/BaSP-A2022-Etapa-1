@@ -7,6 +7,8 @@ window.onload = function() {
 
     var submit = document.getElementById('submit');
 
+    var loginURL = "https://basp-m2022-api-rest-server.herokuapp.com/login";
+
     function errorInput(param, invalidParam, invalidMessage, paramContainer, validation, inputName){
         invalidParam.innerText = invalidMessage;
         invalidParam.classList.add('invalid-input');
@@ -126,7 +128,11 @@ window.onload = function() {
     submit.onclick = ((e)=>{
         e.preventDefault();
         if(validEmail == true && validPassword == true){
-            alert('Email: ' + email.value + ' ' + 'Password: ' + password.value)
+            fetch(loginURL+"?email="+email.value+"&password="+password.value,{
+                method: 'GET',
+            })
+            .then(res => res.json())
+            .then(data => alert(JSON.stringify(data.msg).slice(1,JSON.stringify(data.msg).length-1)))
         }else if(validEmail == false && validPassword == false){
             alert('Invalid Email and Password')
         }else if(validEmail == false && validPassword == true){
