@@ -133,6 +133,9 @@ window.onload = function() {
             })
             .then(res => res.json())
             .then(data => alert(JSON.stringify(data.msg).slice(1,JSON.stringify(data.msg).length-1)))
+            .catch(err = function(){
+                alert(err)
+            })
         }else if(validEmail == false && validPassword == false){
             alert('Invalid Email and Password')
         }else if(validEmail == false && validPassword == true){

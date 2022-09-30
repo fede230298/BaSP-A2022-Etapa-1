@@ -1,5 +1,7 @@
 window.onload = function() {
-    var createCheck = [1,1,1,1,1,1,1,1,1,1,1]
+    var createCheck = [1,1,1,1,1,1,1,1,1,1,1];
+
+    var signupURL = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
 
     var name = document.getElementById('name');
     var surname = document.getElementById('last-name');
@@ -25,6 +27,59 @@ window.onload = function() {
     var emailContainer = document.getElementById('email-container');
     var passwordContainer = document.getElementById('password-container');
     var passwordConfirmContainer = document.getElementById('password-repeat-container');
+
+    function inputDate(){
+        var localDate = JSON.parse(localStorage.getItem('dob').toString());
+        var month = localDate.charAt(0)+localDate.charAt(1);
+        var day = localDate.charAt(3)+localDate.charAt(4);
+        var year = localDate.charAt(6)+localDate.charAt(7)+localDate.charAt(8)+localDate.charAt(9);
+        var correctDateArray = [year,month,day]
+        var correctDateString = correctDateArray.join("-")
+        return correctDateString
+    };
+
+    if(localStorage.getItem('name')){
+        name.setAttribute('value', localStorage.getItem('name').slice(1,localStorage.getItem('name').length-1));
+        createCheck[0] = 0;
+    };
+    if(localStorage.getItem('lastName')){
+        surname.setAttribute('value', localStorage.getItem('lastName').slice(1,localStorage.getItem('lastName').length-1));
+        createCheck[1] = 0;
+    };
+    if(localStorage.getItem('dni')){
+        dni.setAttribute('value', localStorage.getItem('dni').slice(1,localStorage.getItem('dni').length-1));
+        createCheck[2] = 0;
+    };
+    if(localStorage.getItem('dob')){
+        birthday.setAttribute('value', inputDate())
+        createCheck[3] = 0;
+    };
+    if(localStorage.getItem('phone')){
+        phone.setAttribute('value', localStorage.getItem('phone').slice(1,localStorage.getItem('phone').length-1));
+        createCheck[4] = 0;
+    };
+    if(localStorage.getItem('address')){
+        address.setAttribute('value', localStorage.getItem('address').slice(1,localStorage.getItem('address').length-1));
+        createCheck[5] = 0;
+    };
+    if(localStorage.getItem('city')){
+        city.setAttribute('value', localStorage.getItem('city').slice(1,localStorage.getItem('city').length-1));
+        createCheck[6] = 0;
+    };
+    if(localStorage.getItem('zip')){
+        postalCode.setAttribute('value', localStorage.getItem('zip').slice(1,localStorage.getItem('zip').length-1));
+        createCheck[7] = 0;
+    };
+    if(localStorage.getItem('email')){
+        email.setAttribute('value', localStorage.getItem('email').slice(1,localStorage.getItem('email').length-1));
+        createCheck[8] = 0;
+    };
+    if(localStorage.getItem('password')){
+        password.setAttribute('value', localStorage.getItem('password').slice(1,localStorage.getItem('password').length-1));
+        confirmPassword.setAttribute('value', localStorage.getItem('password').slice(1,localStorage.getItem('password').length-1));
+        createCheck[9] = 0;
+        createCheck[10] = 0;
+    };
 
     function hasNotBlankSpace(string){
         if(string.trim() == string){
@@ -517,18 +572,50 @@ window.onload = function() {
             }
         };
         if(check == 0){
-            alert('Welcome, Your data is: \n' +
-            'Name: ' + name.value + '\n' +
-            'Surname: ' + surname.value + '\n' +
-            'DNI: ' + dni.value + '\n' +
-            'Birthday: ' + birthday.value + '\n' +
-            'Phone: ' + phone.value + '\n' +
-            'Address: ' + address.value + '\n' +
-            'City: ' + city.value + '\n' +
-            'Postal Code: ' + postalCode.value + '\n' +
-            'Email: ' + email.value + '\n' +
-            'Password: ' + password.value + '\n' +
-            'Confirm Password: ' + name.value + '\n');
+            var year = birthday.value.substring(0,birthday.value.indexOf("-"));
+            var month = birthday.value.substring(birthday.value.indexOf("-")+1,birthday.value.indexOf("-")+3);
+            var day = birthday.value.substring(birthday.value.indexOf("-")+4);
+            var correctDateArray = [month,day,year];
+            var correctDateString = correctDateArray.join("/");
+            fetch(signupURL+
+                "?name="+name.value+
+                "&lastName="+surname.value+
+                "&dni="+dni.value+
+                "&dob="+correctDateString+
+                "&phone="+phone.value+
+                "&address="+address.value+
+                "&city="+city.value+
+                "&zip="+postalCode.value+
+                "&email="+email.value+
+                "&password="+password.value,
+                {
+                method: 'GET',
+            })
+            .then(res => res.json())
+            .then(data =>{
+                alert(data.msg + "\n" +
+                "Your data is: "+ "\n" +
+                'Name: ' + JSON.stringify(data.data.name) + '\n' +
+                'Surname: ' + JSON.stringify(data.data.lastName) + '\n' +
+                'DNI: ' + JSON.stringify(data.data.dni) + '\n' +
+                'Birthday: ' + JSON.stringify(data.data.dob) + '\n' +
+                'Phone: ' + JSON.stringify(data.data.phone) + '\n' +
+                'Address: ' + JSON.stringify(data.data.address) + '\n' +
+                'City: ' + JSON.stringify(data.data.city) + '\n' +
+                'Postal Code: ' + JSON.stringify(data.data.zip) + '\n' +
+                'Email: ' + JSON.stringify(data.data.email) + '\n' +
+                'Password: ' + JSON.stringify(data.data.password) + '\n');
+                window.localStorage.setItem("name", JSON.stringify(data.data.name))
+                window.localStorage.setItem("lastName", JSON.stringify(data.data.lastName))
+                window.localStorage.setItem("dni", JSON.stringify(data.data.dni))
+                window.localStorage.setItem("dob", JSON.stringify(data.data.dob))
+                window.localStorage.setItem("phone", JSON.stringify(data.data.phone))
+                window.localStorage.setItem("address", JSON.stringify(data.data.address))
+                window.localStorage.setItem("city", JSON.stringify(data.data.city))
+                window.localStorage.setItem("zip", JSON.stringify(data.data.zip))
+                window.localStorage.setItem("email", JSON.stringify(data.data.email))
+                window.localStorage.setItem("password", JSON.stringify(data.data.password))
+            })
         }else{
             var invalidFields = invalidInputs.join('\n')
             alert('Please check the incorrect inputs: \n' + invalidFields);
