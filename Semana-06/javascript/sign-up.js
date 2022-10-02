@@ -15,6 +15,8 @@ window.onload = function() {
     var password = document.getElementById('password');
     var confirmPassword = document.getElementById('password-repeat');
     var submit = document.getElementById('submit');
+    var allInputs = document.querySelectorAll
+    ('#name, #last-name, #dni, #birthday, #phone, #address, #city, #postal-code, #email, #password, #password-repeat');
 
     var nameContainer = document.getElementById('name-container');
     var surnameContainer = document.getElementById('surname-container');
@@ -29,7 +31,7 @@ window.onload = function() {
     var passwordConfirmContainer = document.getElementById('password-repeat-container');
 
     function inputDate(){
-        var localDate = JSON.parse(localStorage.getItem('dob').toString());
+        var localDate = JSON.parse(localStorage.getItem('dob'));
         var month = localDate.charAt(0)+localDate.charAt(1);
         var day = localDate.charAt(3)+localDate.charAt(4);
         var year = localDate.charAt(6)+localDate.charAt(7)+localDate.charAt(8)+localDate.charAt(9);
@@ -61,7 +63,8 @@ window.onload = function() {
         existLocalStorage('city') &&
         existLocalStorage('zip') &&
         existLocalStorage('email') &&
-        existLocalStorage('password')){
+        existLocalStorage('password')
+        ){
         loadLocalStorage(name,'name',0);
         loadLocalStorage(surname,'lastName',1);
         loadLocalStorage(dni,'dni',2);
@@ -218,9 +221,19 @@ window.onload = function() {
         };
     };
 
+    function errorExists(invalidField){
+        if(document.getElementsByClassName('invalid-input ' + invalidField)){
+            return true
+        }else{
+            return false
+        }
+    }
+
     name.onfocus = function(){
         var invalidName = document.getElementsByClassName('invalid-name');
-        correctInput(name, invalidName);
+        if(!!invalidName[0]){
+            correctInput(name, invalidName);
+        }
     };
 
     surname.onblur = function surnameValidation(){
@@ -254,7 +267,9 @@ window.onload = function() {
 
     surname.onfocus = function(){
         var invalidName = document.getElementsByClassName('invalid-surname');
-        correctInput(surname, invalidName);
+        if(!!invalidName[0]){
+            correctInput(surname, invalidName);
+        }
     };
 
     dni.onblur = function dniValidation(){
@@ -288,7 +303,9 @@ window.onload = function() {
 
     dni.onfocus = function(){
         var invalidDni = document.getElementsByClassName('invalid-dni');
-        correctInput(dni, invalidDni);
+        if(!!invalidDni[0]){
+            correctInput(dni, invalidDni);
+        }
     };
 
     birthday.onblur = function birthdayValidation(){
@@ -315,7 +332,9 @@ window.onload = function() {
 
     birthday.onfocus = function(){
         var invalidBirthday = document.getElementsByClassName('invalid-birthday');
-        correctInput(birthday, invalidBirthday);
+        if(!!invalidBirthday[0]){
+            correctInput(birthday, invalidBirthday);
+        }
     };
 
     phone.onblur = function phoneValidation(){
@@ -349,7 +368,9 @@ window.onload = function() {
 
     phone.onfocus = function(){
         var invalidPhone = document.getElementsByClassName('invalid-phone');
-        correctInput(phone, invalidPhone);
+        if(!!invalidPhone[0]){
+            correctInput(phone, invalidPhone);
+        }
     };
 
     address.onblur = function addressValidation(){
@@ -389,8 +410,10 @@ window.onload = function() {
     };
 
     address.onfocus = function(){
-        var invalidAddress = document.getElementsByClassName('invalid-address')
-        correctInput(address, invalidAddress);
+        var invalidAddress = document.getElementsByClassName('invalid-address');
+        if(!!invalidAddress[0]){
+            correctInput(address, invalidAddress);
+        }
     };
 
     city.onblur = function cityValidation(){
@@ -423,8 +446,10 @@ window.onload = function() {
     };
 
     city.onfocus = function(){
-        var invalidCity = document.getElementsByClassName('invalid-city')
-        correctInput(city, invalidCity);
+        var invalidCity = document.getElementsByClassName('invalid-city');
+        if(!!invalidCity[0]){
+            correctInput(city, invalidCity);
+        }
     };
 
     postalCode.onblur = function postalValidation(){
@@ -458,18 +483,26 @@ window.onload = function() {
 
     postalCode.onfocus = function(){
         var invalidPostalCode = document.getElementsByClassName('invalid-postalCode');
-        correctInput(postalCode, invalidPostalCode);
+        if(!!invalidPostalCode[0]){
+            correctInput(postalCode, invalidPostalCode);
+        }
     };
 
     email.onblur = function emailValidation(){
         var validEmail = false;
         var inputName = Object.keys({email})[0];
-        var errors = ['Invalid Email'];
+        var errors = ['Invalid Email','Email must not contain blank spaces'];
         var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
         if(email.value.match(emailExpression)){
-            createCheck[8] = 0;
-            return true;
+            if(email.value.includes(" ") == false){
+                createCheck[8] = 0;
+                return true;
+            }else{
+                createCheck[8] = 1;
+            var invalidEmail = document.createElement('p');
+            errorInput(email, invalidEmail, errors[1], emailContainer, validEmail, inputName);
+            }
         }else{
             createCheck[8] = 1;
             var invalidEmail = document.createElement('p');
@@ -479,7 +512,9 @@ window.onload = function() {
 
     email.onfocus = function() {
         var invalidEmail = document.getElementsByClassName('invalid-email');
-        correctInput(email, invalidEmail);
+        if(!!invalidEmail[0]){
+            correctInput(email, invalidEmail);
+        }
     };
 
     password.onblur = function passwordValidation(){
@@ -508,7 +543,9 @@ window.onload = function() {
 
     password.onfocus = function(){
         var invalidPassword = document.getElementsByClassName('invalid-password');
-        correctInput(password, invalidPassword);
+        if(!!invalidPassword[0]){
+            correctInput(password, invalidPassword);
+        }
     };
 
     confirmPassword.onblur = function confirmPasswordValidation(){
@@ -542,7 +579,9 @@ window.onload = function() {
 
     confirmPassword.onfocus = function(){
         var invalidPassword = document.getElementsByClassName('invalid-confirmPassword');
-        correctInput(confirmPassword, invalidPassword);
+        if(!!invalidPassword[0]){
+            correctInput(confirmPassword, invalidPassword);
+        }
     };
 
     submit.onclick = function(e){
@@ -588,7 +627,7 @@ window.onload = function() {
                 {
                 method: 'GET',
             })
-            .then(function(res) {res.json()})
+            .then(function(res){ return res.json()})
             .then(function(data){
                 alert(data.msg + "\n" +
                 "Your data is: "+ "\n" +
@@ -602,17 +641,22 @@ window.onload = function() {
                 'Postal Code: ' + JSON.stringify(data.data.zip) + '\n' +
                 'Email: ' + JSON.stringify(data.data.email) + '\n' +
                 'Password: ' + JSON.stringify(data.data.password) + '\n');
-                window.localStorage.setItem("name", JSON.stringify(data.data.name))
-                window.localStorage.setItem("lastName", JSON.stringify(data.data.lastName))
-                window.localStorage.setItem("dni", JSON.stringify(data.data.dni))
-                window.localStorage.setItem("dob", JSON.stringify(data.data.dob))
-                window.localStorage.setItem("phone", JSON.stringify(data.data.phone))
-                window.localStorage.setItem("address", JSON.stringify(data.data.address))
-                window.localStorage.setItem("city", JSON.stringify(data.data.city))
-                window.localStorage.setItem("zip", JSON.stringify(data.data.zip))
-                window.localStorage.setItem("email", JSON.stringify(data.data.email))
-                window.localStorage.setItem("password", JSON.stringify(data.data.password))
+                window.localStorage.setItem("name", JSON.stringify(data.data.name));
+                window.localStorage.setItem("lastName", JSON.stringify(data.data.lastName));
+                window.localStorage.setItem("dni", JSON.stringify(data.data.dni));
+                window.localStorage.setItem("dob", JSON.stringify(data.data.dob));
+                window.localStorage.setItem("phone", JSON.stringify(data.data.phone));
+                window.localStorage.setItem("address", JSON.stringify(data.data.address));
+                window.localStorage.setItem("city", JSON.stringify(data.data.city));
+                window.localStorage.setItem("zip", JSON.stringify(data.data.zip));
+                window.localStorage.setItem("email", JSON.stringify(data.data.email));
+                window.localStorage.setItem("password", JSON.stringify(data.data.password));
+                allInputs.forEach(function(allInputs){
+                    createCheck = [1,1,1,1,1,1,1,1,1,1,1];
+                    allInputs.value='';
+                });
             })
+            .catch(function(err){alert(err)})
         }else{
             var invalidFields = invalidInputs.join('\n')
             alert('Please check the incorrect inputs: \n' + invalidFields);

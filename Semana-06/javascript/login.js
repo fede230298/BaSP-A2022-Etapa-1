@@ -86,12 +86,18 @@ window.onload = function() {
 
     email.onblur = function emailValidation(){
         var inputName = Object.keys({email})[0];
-        var errors = ['Invalid Email'];
+        var errors = ['Invalid Email','Email must not contain blank spaces'];
         var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
         if(email.value.match(emailExpression)){
-            validEmail = true;
-            return true;
+            if(email.value.includes(" ") == false){
+                validEmail = true;
+                return true;
+            }else{
+                var invalidEmail = document.createElement('p');
+                validEmail = false;
+                errorInput(email, invalidEmail, errors[1], emailContainer, validEmail, inputName);
+            }
         }else{
             var invalidEmail = document.createElement('p');
             validEmail = false;
@@ -101,17 +107,25 @@ window.onload = function() {
 
     email.onfocus = function() {
         var invalidEmail = document.getElementsByClassName('invalid-email');
-        correctInput(email, invalidEmail);
+        if(!!invalidEmail[0]){
+            correctInput(email, invalidEmail);
+        }
     };
 
-    password.onblur = function passwordValidation(){
+    function passwordValidation(){
         var inputName = Object.keys({password})[0];
         var errors = ['Invalid Password. Must contain only alphanumeric characters including 1 letter and'+
-        ' 1 number, no special characters allowed'];
+        ' 1 number, no special characters allowed','Invalid Password. Must not contain blank spaces'];
 
         if(alphanumericMandatory(password.value)){
-            validPassword = true;
-            return true;
+            if(password.value.includes(' ') == false){
+                validPassword = true;
+                return true;
+            }else{
+                validPassword = false;
+                var invalidPassword = document.createElement('p');
+                errorInput(password, invalidPassword, errors[1], passwordContainer, validPassword, inputName);
+            }
         }else{
             validPassword = false;
             var invalidPassword = document.createElement('p');
@@ -119,9 +133,13 @@ window.onload = function() {
         };
     };
 
+    password.onblur = passwordValidation;
+
     password.onfocus = function(){
         var invalidPassword = document.getElementsByClassName('invalid-password');
-        correctInput(password, invalidPassword);
+        if(!!invalidPassword[0]){
+            correctInput(password, invalidPassword);
+        }
     };
 
 
@@ -131,13 +149,11 @@ window.onload = function() {
             fetch(loginURL+"?email="+email.value+"&password="+password.value,{
                 method: 'GET',
             })
-            .then(function(res) {res.json()})
-            .then(function(data) {alert(JSON.stringify(data.msg).slice(1,JSON.stringify(data.msg).length-1))})
-            .catch(err = function(){
-                alert(err)
-            })
+            .then(function(res){return res.json()})
+            .then(function(data) {alert(data.msg)})
+            .catch(function(err){alert(err)})
         }else if(validEmail == false && validPassword == false){
-            alert('Invalid Email and Password')
+            alert('Invalid Email and Password');
         }else if(validEmail == false && validPassword == true){
             alert('Invalid Email')
         }else{

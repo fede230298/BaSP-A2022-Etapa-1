@@ -16,7 +16,7 @@ form{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content:center;
 }
 
 form div{
@@ -38,6 +38,7 @@ form button{
 
 #sign-up form .form-container{
     display: block;
+    width: 80%;
 }
 
 #sign-up form > div:last-of-type{
@@ -56,6 +57,16 @@ form button{
 
 #sign-up h2, #sign-up p{
     text-align: center;
+}
+
+@media (min-width: 480px) {
+    form{
+        justify-content: space-between;
+    }
+
+    #sign-up form .form-container{
+        width: 45%;
+    }
 }
 
 @media (min-width: 1024px) {
