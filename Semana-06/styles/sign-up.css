@@ -12,6 +12,14 @@ h2{
     color: #373867;
 }
 
+p a{
+    color: red;
+}
+
+p a:hover{
+    color: #AACE9B;
+}
+
 form{
     display: flex;
     flex-direction: row;
@@ -41,9 +49,9 @@ form button{
     width: 80%;
 }
 
-#sign-up form > div:last-of-type{
+/* #sign-up form > div:last-of-type{
     margin-right: auto;
-}
+} */
 
 #sign-up form .invalid-input{
     text-align: left;
@@ -66,6 +74,10 @@ form button{
 
     #sign-up form .form-container{
         width: 45%;
+    }
+
+    #sign-up form > div:last-of-type{
+        margin-right: auto;
     }
 }
 

@@ -21,6 +21,14 @@ h2{
     color: #373867;
 }
 
+p a{
+    color: red;
+}
+
+p a:hover{
+    color: #AACE9B;
+}
+
 #main-body{
     display: flex;
     flex-direction: column;
@@ -53,6 +61,13 @@ form{
     margin: 10px 0px;
 }
 
+form > div:nth-child(1), form > div:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+}
+
 form div:nth-child(3){
     display: flex;
     flex-direction: row;
@@ -63,7 +78,7 @@ form div:nth-child(3){
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
     height: auto;
     padding: 10px 0px;
 }
@@ -163,6 +178,12 @@ header h2{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width: 480px) {
+    .form-container{
+        width: 100%;
+    }
 }
 
 @media (min-width: 1024px) {
