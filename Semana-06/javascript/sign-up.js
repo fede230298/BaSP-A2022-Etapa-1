@@ -1,5 +1,5 @@
 window.onload = function() {
-    var createCheck = [1,1,1,1,1,1,1,1,1,1,1];
+    var errorsArray = [];
 
     var signupURL = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
 
@@ -78,8 +78,6 @@ window.onload = function() {
         loadLocalStorage(password,'password',9);
         loadLocalStorage(confirmPassword,'password',10);
     };
-
-
 
     function hasNotBlankSpace(string){
         if(string.trim() == string){
@@ -191,6 +189,21 @@ window.onload = function() {
         param.classList.remove('form-input-invalid');
     };
 
+    function addError(errorName){
+        if(!(errorsArray.includes(errorName))){
+            errorsArray.push(errorName)
+        }
+    }
+
+    function deleteError(errorName){
+        if(errorsArray.includes(errorName)){
+            var index = errorsArray.indexOf(errorName);
+            if(index > -1){
+                errorsArray.splice(index,1)
+            }
+        }
+    }
+
     name.onblur = function nameValidation(){
         var validName = false;
         var inputName = Object.keys({name})[0];
@@ -201,20 +214,24 @@ window.onload = function() {
         if(onlyLetters(name.value)){
             if(name.value.length > 3){
                 if(hasNotBlankSpace(name.value)){
+                    deleteError('Name');
                     createCheck[0] = 0;
                     validName = true;
                     return true;
                 }else{
+                    addError('Name')
                     createCheck[0] = 1;
                     var invalidName = document.createElement('p');
                     errorInput(name, invalidName, errors[2], nameContainer, validName, inputName);
                 };
             }else{
+                addError('Name')
                 createCheck[0] = 1;
                 var invalidName = document.createElement('p');
                 errorInput(name, invalidName, errors[1], nameContainer, validName, inputName);
             };
         }else{
+            addError('Name')
             createCheck[0] = 1;
             var invalidName = document.createElement('p');
             errorInput(name, invalidName, errors[0], nameContainer, validName, inputName);
@@ -246,19 +263,23 @@ window.onload = function() {
         if(onlyLetters(surname.value)){
             if(surname.value.length > 3){
                 if(hasNotBlankSpace(surname.value)){
+                    deleteError('Surname');
                     createCheck[1] = 0;
                     return true;
                 }else{
+                    addError('Surname')
                     createCheck[1] = 1;
                     var invalidSurname = document.createElement('p');
                     errorInput(surname, invalidSurname, errors[2], surnameContainer, validSurname, inputName);
                 };
             }else{
+                addError('Surname')
                 createCheck[1] = 1;
                 var invalidSurname = document.createElement('p');
                 errorInput(surname, invalidSurname, errors[1], surnameContainer, validSurname, inputName);
             };
         }else{
+            addError('Surname')
             createCheck[1] = 1;
             var invalidSurname = document.createElement('p');
             errorInput(surname, invalidSurname, errors[0], surnameContainer, validSurname, inputName);
@@ -282,19 +303,23 @@ window.onload = function() {
         if(dni.value.length >= 7 ){
             if(onlyNumbers(dni.value)){
                 if(hasNotBlankSpace(dni.value)){
+                    deleteError('DNI');
                     createCheck[2] = 0;
                     return true;
                 }else{
+                    addError('DNI')
                     createCheck[2] = 1;
                     var invalidDni = document.createElement('p');
                     errorInput(dni, invalidDni, errors[2], dniContainer, validDni, inputName);
                 }
             }else{
+                addError('DNI')
                 createCheck[2] = 1;
                 var invalidDni = document.createElement('p');
                 errorInput(dni, invalidDni, errors[1], dniContainer, validDni, inputName);
             };
         }else{
+            addError('DNI')
             createCheck[2] = 1;
             var invalidDni = document.createElement('p');
             errorInput(dni, invalidDni, errors[0], dniContainer, validDni, inputName);
@@ -316,14 +341,17 @@ window.onload = function() {
 
         if(birthday.value != ''){
             if(birthday.value.length == 10){
+                deleteError('Birthday');
                 createCheck[3] = 0;
                 return true;
             }else{
+                addError('NBirthday')
                 createCheck[3] = 1;
                 var invalidBirthday = document.createElement('p');
                 errorInput(birthday, invalidBirthday, errors[1], birthdayContainer, validBirthday, inputName);
             };
         }else{
+            addError('Birthday')
             createCheck[3] = 1;
             var invalidBirthday = document.createElement('p');
             errorInput(birthday, invalidBirthday, errors[0], birthdayContainer, validBirthday, inputName);
@@ -347,19 +375,23 @@ window.onload = function() {
         if(phone.value.length == 10 ){
             if(onlyNumbers(phone.value)){
                 if(hasNotBlankSpace(phone.value)){
+                    deleteError('Phone');
                     createCheck[4] = 0;
                     return true;
                 }else{
+                    addError('Phone')
                     createCheck[4] = 1;
                     var invalidPhone = document.createElement('p');
                     errorInput(phone, invalidPhone, errors[2], phoneContainer, validPhone, inputName);
                 }
             }else{
+                addError('Phone')
                 createCheck[4] = 1;
                 var invalidPhone = document.createElement('p');
                 errorInput(phone, invalidPhone, errors[1], phoneContainer, validPhone, inputName);
             };
         }else{
+            addError('Phone')
             createCheck[4] = 1;
             var invalidPhone = document.createElement('p');
             errorInput(phone, invalidPhone, errors[0], phoneContainer, validPhone, inputName);
@@ -385,24 +417,29 @@ window.onload = function() {
             if(alphanumericMandatory(address.value)){
                 if(address.value.includes(' ')){
                     if(hasNotBlankSpace(address.value)){
+                        deleteError('Address');
                         createCheck[5] = 0;
                         return true;
                     }else{
+                        addError('Address')
                         createCheck[5] = 1;
                         var invalidAddress = document.createElement('p');
                         errorInput(address, invalidAddress, errors[3], addressContainer, validAddress, inputName);
                     };
                 }else{
+                    addError('Address')
                     createCheck[5] = 1;
                     var invalidAddress = document.createElement('p');
                     errorInput(address, invalidAddress, errors[2], addressContainer, validAddress, inputName);
                 };
             }else{
+                addError('Address')
                 createCheck[5] = 1;
                 var invalidAddress = document.createElement('p');
                 errorInput(address, invalidAddress, errors[1], addressContainer, validAddress, inputName);
             };
         }else{
+            addError('Address')
             createCheck[5] = 1;
             var invalidAddress = document.createElement('p');
             errorInput(address, invalidAddress, errors[0], addressContainer, validAddress, inputName);
@@ -426,19 +463,23 @@ window.onload = function() {
         if(city.value.length > 3){
             if(alphanumericOptional(city.value)){
                 if(hasNotBlankSpace(city.value)){
+                    deleteError('City');
                     createCheck[6] = 0;
                     return true;
                 }else{
+                    addError('City')
                     createCheck[6] = 1;
                     var invalidCity = document.createElement('p');
                     errorInput(city, invalidCity, errors[2], cityContainer, validCity, inputName);
                 };
             }else{
+                addError('City')
                 createCheck[6] = 1;
                 var invalidCity = document.createElement('p');
                 errorInput(city, invalidCity, errors[1], cityContainer, validCity, inputName);
             };
         }else{
+            addError('City')
             createCheck[6] = 1;
             var invalidCity = document.createElement('p');
             errorInput(city, invalidCity, errors[0], cityContainer, validCity, inputName);
@@ -462,19 +503,23 @@ window.onload = function() {
         if(postalCode.value.length > 3 && postalCode.value.length < 6){
             if(onlyNumbers(postalCode.value)){
                 if(hasNotBlankSpace(postalCode.value)){
+                    deleteError('Postal Code');
                     createCheck[7] = 0;
                     return true;
                 }else{
+                    addError('Postal Code')
                     createCheck[7] = 1;
                     var invalidPostalCode = document.createElement('p');
                     errorInput(postalCode, invalidPostalCode, errors[2], postalCodeContainer, validPostalCode, inputName);
                 }
             }else{
+                addError('Postal Code')
                 createCheck[7] = 1;
                 var invalidPostalCode = document.createElement('p');
                 errorInput(postalCode, invalidPostalCode, errors[1], postalCodeContainer, validPostalCode, inputName);
             };
         }else{
+            addError('Postal Code')
             createCheck[7] = 1;
             var invalidPostalCode = document.createElement('p');
             errorInput(postalCode, invalidPostalCode, errors[0], postalCodeContainer, validPostalCode, inputName);
@@ -496,14 +541,17 @@ window.onload = function() {
 
         if(email.value.match(emailExpression)){
             if(email.value.includes(" ") == false){
+                deleteError('Email');
                 createCheck[8] = 0;
                 return true;
             }else{
+                addError('Email')
                 createCheck[8] = 1;
             var invalidEmail = document.createElement('p');
             errorInput(email, invalidEmail, errors[1], emailContainer, validEmail, inputName);
             }
         }else{
+            addError('Email')
             createCheck[8] = 1;
             var invalidEmail = document.createElement('p');
             errorInput(email, invalidEmail, errors[0], emailContainer, validEmail, inputName);
@@ -527,14 +575,17 @@ window.onload = function() {
 
         if(password.value.length > 8){
             if(alphanumericMandatory(password.value)){
+                deleteError('Password');
                 createCheck[9] = 0;
                 return true;
             }else{
+                addError('Password')
                 createCheck[9] = 1;
                 var invalidPassword = document.createElement('p');
                 errorInput(password, invalidPassword, errors[1], passwordContainer, validPassword, inputName);
             };
         }else{
+            addError('Password')
             createCheck[9] = 1;
             var invalidPassword = document.createElement('p');
             errorInput(password, invalidPassword, errors[0], passwordContainer, validPassword, inputName);
@@ -557,20 +608,24 @@ window.onload = function() {
 
         if(password.value == confirmPassword.value){
             if(confirmPassword.value.length == 0){
+                addError('Confirm Password')
                 createCheck[10] = 1;
                 var invalidPassword = document.createElement('p');
                 errorInput
                 (confirmPassword, invalidPassword, errors[2], passwordConfirmContainer, validPassword, inputName);
             }else if(confirmPassword.value.length < 8){
+                addError('Confirm Password')
                 createCheck[10] = 1;
                 var invalidPassword = document.createElement('p');
                 errorInput
                 (confirmPassword, invalidPassword, errors[1], passwordConfirmContainer, validPassword, inputName);
             }else{
+                deleteError('Confirm Password');
                 createCheck[10] = 0;
                 return true;
             };
         }else{
+            addError('Confirm Password')
             createCheck[10] = 1;
             var invalidPassword = document.createElement('p');
             errorInput(confirmPassword, invalidPassword, errors[0], passwordConfirmContainer, validPassword, inputName);
@@ -586,7 +641,7 @@ window.onload = function() {
 
     submit.onclick = function(e){
         e.preventDefault();
-        var fields = [
+        /* var fields = [
             'Name',
             'Surname',
             'DNI',
@@ -606,8 +661,8 @@ window.onload = function() {
             if(createCheck[i] == 1){
                 invalidInputs.push(fields[i])
             }
-        };
-        if(check == 0){
+        }; */
+        if(errorsArray.length == 0){
             var year = birthday.value.substring(0,birthday.value.indexOf("-"));
             var month = birthday.value.substring(birthday.value.indexOf("-")+1,birthday.value.indexOf("-")+3);
             var day = birthday.value.substring(birthday.value.indexOf("-")+4);
@@ -631,16 +686,16 @@ window.onload = function() {
             .then(function(data){
                 alert(data.msg + "\n" +
                 "Your data is: "+ "\n" +
-                'Name: ' + JSON.stringify(data.data.name) + '\n' +
-                'Surname: ' + JSON.stringify(data.data.lastName) + '\n' +
-                'DNI: ' + JSON.stringify(data.data.dni) + '\n' +
-                'Birthday: ' + JSON.stringify(data.data.dob) + '\n' +
-                'Phone: ' + JSON.stringify(data.data.phone) + '\n' +
-                'Address: ' + JSON.stringify(data.data.address) + '\n' +
-                'City: ' + JSON.stringify(data.data.city) + '\n' +
-                'Postal Code: ' + JSON.stringify(data.data.zip) + '\n' +
-                'Email: ' + JSON.stringify(data.data.email) + '\n' +
-                'Password: ' + JSON.stringify(data.data.password) + '\n');
+                'Name: ' + data.data.name + '\n' +
+                'Surname: ' + data.data.lastName + '\n' +
+                'DNI: ' + data.data.dni + '\n' +
+                'Birthday: ' + data.data.dob + '\n' +
+                'Phone: ' + data.data.phone + '\n' +
+                'Address: ' + data.data.address + '\n' +
+                'City: ' + data.data.city + '\n' +
+                'Postal Code: ' + data.data.zip + '\n' +
+                'Email: ' + data.data.email + '\n' +
+                'Password: ' + data.data.password + '\n');
                 window.localStorage.setItem("name", JSON.stringify(data.data.name));
                 window.localStorage.setItem("lastName", JSON.stringify(data.data.lastName));
                 window.localStorage.setItem("dni", JSON.stringify(data.data.dni));
@@ -652,13 +707,15 @@ window.onload = function() {
                 window.localStorage.setItem("email", JSON.stringify(data.data.email));
                 window.localStorage.setItem("password", JSON.stringify(data.data.password));
                 allInputs.forEach(function(allInputs){
-                    createCheck = [1,1,1,1,1,1,1,1,1,1,1];
+                    /* createCheck = [1,1,1,1,1,1,1,1,1,1,1]; */
+                    errorsArray.push('Name', 'Last Name', 'DNI', 'Birthday', 'Phone', 'Address', 'City', 'Postal Code',
+                    'Email', 'Password', 'Confirm Password');
                     allInputs.value='';
                 });
             })
-            .catch(function(err){alert(err)})
+            .catch(function(err){alert(err)});
         }else{
-            var invalidFields = invalidInputs.join('\n')
+            var invalidFields = errorsArray.join('\n');
             alert('Please check the incorrect inputs: \n' + invalidFields);
         };
     };
