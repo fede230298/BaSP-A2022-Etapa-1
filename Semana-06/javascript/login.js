@@ -4,10 +4,26 @@ window.onload = function() {
 
     var email = document.getElementById('email');
     var password = document.getElementById('password');
+    var showPassword = document.getElementById('show-password');
+
+    var modal = document.getElementById("myModal");
+    var modalHeader = document.getElementsByClassName('modal-header')[0];
+    var modalBody = document.getElementsByClassName('modal-body')[0];
+    var cross = document.getElementsByClassName("close")[0];
 
     var submit = document.getElementById('submit');
 
     var loginURL = "https://basp-m2022-api-rest-server.herokuapp.com/login";
+
+    function modalOpen(messageHeader, message){
+        modal.style.display="block";
+        var alertMessageHeader = document.createElement('h2');
+        alertMessageHeader.innerText = messageHeader;
+        modalHeader.append(alertMessageHeader);
+        var alertMessage = document.createElement('p');
+        alertMessage.innerText = message;
+        modalBody.append(alertMessage);
+    }
 
     function errorInput(param, invalidParam, invalidMessage, paramContainer, validation, inputName){
         invalidParam.innerText = invalidMessage;
@@ -142,7 +158,6 @@ window.onload = function() {
         }
     };
 
-
     submit.onclick = (function(e){
         e.preventDefault();
         if(validEmail == true && validPassword == true){
@@ -150,14 +165,36 @@ window.onload = function() {
                 method: 'GET',
             })
             .then(function(res){return res.json()})
-            .then(function(data) {alert(data.msg)})
-            .catch(function(err){alert(err)})
+            .then(function(data){
+                if(data.success == true){
+                    modalOpen("Welcome!",data.msg)
+                }else{
+                    modalOpen("ERROR!", data.msg)
+                }
+            })
+            .catch(function(err){modalOpen("SERVER ERROR!",err)})
         }else if(validEmail == false && validPassword == false){
-            alert('Invalid Email and Password');
+            modalOpen("Error","Invalid Email and Password");
         }else if(validEmail == false && validPassword == true){
-            alert('Invalid Email')
+            modalOpen("Error",'Invalid Email');
         }else{
-            alert('Invalid Password')
+            modalOpen("Error",'Invalid Password');
         }
-    })
-}
+    });
+
+    showPassword.onclick = function(){
+        if(password.type === 'password'){
+            password.type = 'text';
+        }else{
+            password.type = 'password';
+        };
+    };
+
+    cross.onclick = function() {
+        modal.style.display = "none";
+        while(modalBody.firstChild){
+            modalBody.removeChild(modalBody.firstChild);
+            modalHeader.removeChild(modalHeader.lastChild);
+        };
+    };
+};

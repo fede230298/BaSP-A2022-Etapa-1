@@ -30,8 +30,23 @@ window.onload = function() {
     var passwordContainer = document.getElementById('password-container');
     var passwordConfirmContainer = document.getElementById('password-repeat-container');
 
+    var modal = document.getElementById("myModal");
+    var modalHeader = document.getElementsByClassName('modal-header')[0];
+    var modalBody = document.getElementsByClassName('modal-body')[0];
+    var cross = document.getElementsByClassName("close")[0];
+
+    function modalOpen(messageHeader, message){
+        modal.style.display="block";
+        var alertMessageHeader = document.createElement('h2');
+        alertMessageHeader.innerText = messageHeader;
+        modalHeader.append(alertMessageHeader);
+        var alertMessage = document.createElement('p');
+        alertMessage.innerText = message;
+        modalBody.append(alertMessage);
+    }
+
     function inputDate(){
-        var localDate = JSON.parse(localStorage.getItem('dob'));
+        var localDate = localStorage.getItem('dob');
         var month = localDate.charAt(0)+localDate.charAt(1);
         var day = localDate.charAt(3)+localDate.charAt(4);
         var year = localDate.charAt(6)+localDate.charAt(7)+localDate.charAt(8)+localDate.charAt(9);
@@ -41,7 +56,7 @@ window.onload = function() {
     };
 
     function loadLocalStorage(input,localName){
-        input.setAttribute('value', localStorage.getItem(localName).slice(1,localStorage.getItem(localName).length-1));
+        input.setAttribute('value', localStorage.getItem(localName));
     };
 
     function existLocalStorage(name){
@@ -605,8 +620,7 @@ window.onload = function() {
             })
             .then(function(res){ return res.json()})
             .then(function(data){
-                alert(data.msg + "\n" +
-                "Your data is: "+ "\n" +
+                modalOpen(data.msg, "Your data is: "+ "\n" +
                 'Name: ' + data.data.name + '\n' +
                 'Surname: ' + data.data.lastName + '\n' +
                 'DNI: ' + data.data.dni + '\n' +
@@ -617,16 +631,16 @@ window.onload = function() {
                 'Postal Code: ' + data.data.zip + '\n' +
                 'Email: ' + data.data.email + '\n' +
                 'Password: ' + data.data.password + '\n');
-                window.localStorage.setItem("name", JSON.stringify(data.data.name));
-                window.localStorage.setItem("lastName", JSON.stringify(data.data.lastName));
-                window.localStorage.setItem("dni", JSON.stringify(data.data.dni));
-                window.localStorage.setItem("dob", JSON.stringify(data.data.dob));
-                window.localStorage.setItem("phone", JSON.stringify(data.data.phone));
-                window.localStorage.setItem("address", JSON.stringify(data.data.address));
-                window.localStorage.setItem("city", JSON.stringify(data.data.city));
-                window.localStorage.setItem("zip", JSON.stringify(data.data.zip));
-                window.localStorage.setItem("email", JSON.stringify(data.data.email));
-                window.localStorage.setItem("password", JSON.stringify(data.data.password));
+                window.localStorage.setItem("name", (data.data.name));
+                window.localStorage.setItem("lastName", (data.data.lastName));
+                window.localStorage.setItem("dni", (data.data.dni));
+                window.localStorage.setItem("dob", (data.data.dob));
+                window.localStorage.setItem("phone", (data.data.phone));
+                window.localStorage.setItem("address", (data.data.address));
+                window.localStorage.setItem("city", (data.data.city));
+                window.localStorage.setItem("zip", (data.data.zip));
+                window.localStorage.setItem("email", (data.data.email));
+                window.localStorage.setItem("password", (data.data.password));
                 allInputs.forEach(function(allInputs){
                     errorsArray.push('Name', 'Last Name', 'DNI', 'Birthday', 'Phone', 'Address', 'City', 'Postal Code',
                     'Email', 'Password', 'Confirm Password');
@@ -636,7 +650,16 @@ window.onload = function() {
             .catch(function(err){alert(err)});
         }else{
             var invalidFields = errorsArray.join('\n');
-            alert('Please check the incorrect inputs: \n' + invalidFields);
+            modalOpen('Please check the incorrect inputs:', invalidFields)
+            /* alert('Please check the incorrect inputs: \n' + invalidFields); */
         };
     };
+
+    cross.onclick = function() {
+        modal.style.display = "none";
+        while(modalBody.firstChild){
+            modalBody.removeChild(modalBody.firstChild);
+            modalHeader.removeChild(modalHeader.lastChild);
+        }
+    }
 };
