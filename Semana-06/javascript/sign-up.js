@@ -1,7 +1,7 @@
 window.onload = function() {
     var errorsArray = [];
 
-    var signupURL = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
+    var signupURL = 'https://basp-m2022-api-rest-server.herokuapp.com/signup';
 
     var name = document.getElementById('name');
     var surname = document.getElementById('last-name');
@@ -30,13 +30,14 @@ window.onload = function() {
     var passwordContainer = document.getElementById('password-container');
     var passwordConfirmContainer = document.getElementById('password-repeat-container');
 
-    var modal = document.getElementById("myModal");
+    var modal = document.getElementById('myModal');
     var modalHeader = document.getElementsByClassName('modal-header')[0];
     var modalBody = document.getElementsByClassName('modal-body')[0];
-    var cross = document.getElementsByClassName("close")[0];
+    var cross = document.getElementsByClassName('close')[0];
+    var modalButton = document.getElementById('modal-button');
 
     function modalOpen(messageHeader, message){
-        modal.style.display="block";
+        modal.style.display='flex';
         var alertMessageHeader = document.createElement('h2');
         alertMessageHeader.innerText = messageHeader;
         modalHeader.append(alertMessageHeader);
@@ -51,7 +52,7 @@ window.onload = function() {
         var day = localDate.charAt(3)+localDate.charAt(4);
         var year = localDate.charAt(6)+localDate.charAt(7)+localDate.charAt(8)+localDate.charAt(9);
         var correctDateArray = [year,month,day]
-        var correctDateString = correctDateArray.join("-")
+        var correctDateString = correctDateArray.join('-')
         return correctDateString
     };
 
@@ -216,6 +217,22 @@ window.onload = function() {
             if(index > -1){
                 errorsArray.splice(index,1);
             };
+        };
+    };
+
+    function iterateErrors(data){
+        var errors = [];
+        for (var i = 0; i < data.errors.length; i++){
+            errors += data.errors[i].msg + '\n'
+        };
+        return errors;
+    };
+
+    function modalClose(){
+        modal.style.display = 'none';
+        while(modalBody.firstChild){
+            modalBody.removeChild(modalBody.firstChild);
+            modalHeader.removeChild(modalHeader.lastChild);
         };
     };
 
@@ -387,18 +404,25 @@ window.onload = function() {
         var errors = ['Invalid Address. Must be at least 5 character long',
         'Invalid Address. Must contain letters and numbers',
         'Invalid Address. Must contain at least one blank space',
+        'Invalid Address. Must contain just one space in the middle',
         'Invalid Address. There are blank spaces in one or both edges'];
 
         if(address.value.length > 4){
             if(alphanumericMandatory(address.value)){
                 if(address.value.includes(' ')){
-                    if(hasNotBlankSpace(address.value)){
-                        deleteError('Address');
+                    if((address.value.split(' ').length-1) == 1){
+                        if(hasNotBlankSpace(address.value)){
+                            deleteError('Address');
+                        }else{
+                            addError('Address');
+                            var invalidAddress = document.createElement('p');
+                            errorInput(address, invalidAddress, errors[4], addressContainer, inputName);
+                        };
                     }else{
                         addError('Address');
                         var invalidAddress = document.createElement('p');
                         errorInput(address, invalidAddress, errors[3], addressContainer, inputName);
-                    };
+                    }
                 }else{
                     addError('Address');
                     var invalidAddress = document.createElement('p');
@@ -497,13 +521,13 @@ window.onload = function() {
         var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
         if(email.value.match(emailExpression)){
-            if(email.value.includes(" ") == false){
+            if(email.value.includes(' ') == false){
                 deleteError('Email');
             }else{
                 addError('Email');
             var invalidEmail = document.createElement('p');
             errorInput(email, invalidEmail, errors[1], emailContainer, inputName);
-            }
+            };
         }else{
             addError('Email');
             var invalidEmail = document.createElement('p');
@@ -558,7 +582,7 @@ window.onload = function() {
                     deleteError('Password');
                     if(confirmPassword.value.length > 0){
                         confirmPasswordValidation();
-                    }
+                    };
                 }else{
                     addError('Password');
                     var invalidPassword = document.createElement('p');
@@ -599,67 +623,68 @@ window.onload = function() {
     submit.onclick = function(e){
         e.preventDefault();
         if(errorsArray.length == 0){
-            var year = birthday.value.substring(0,birthday.value.indexOf("-"));
-            var month = birthday.value.substring(birthday.value.indexOf("-")+1,birthday.value.indexOf("-")+3);
-            var day = birthday.value.substring(birthday.value.indexOf("-")+4);
+            var year = birthday.value.substring(0,birthday.value.indexOf('-'));
+            var month = birthday.value.substring(birthday.value.indexOf('-')+1,birthday.value.indexOf('-')+3);
+            var day = birthday.value.substring(birthday.value.indexOf('-')+4);
             var correctDateArray = [month,day,year];
-            var correctDateString = correctDateArray.join("/");
+            var correctDateString = correctDateArray.join('/');
             fetch(signupURL+
-                "?name="+name.value+
-                "&lastName="+surname.value+
-                "&dni="+dni.value+
-                "&dob="+correctDateString+
-                "&phone="+phone.value+
-                "&address="+address.value+
-                "&city="+city.value+
-                "&zip="+postalCode.value+
-                "&email="+email.value+
-                "&password="+password.value,
+                '?name='+name.value+
+                '&lastName='+surname.value+
+                '&dni='+dni.value+
+                '&dob='+correctDateString+
+                '&phone='+phone.value+
+                '&address='+address.value+
+                '&city='+city.value+
+                '&zip='+postalCode.value+
+                '&email='+email.value+
+                '&password='+password.value,
                 {
                 method: 'GET',
             })
-            .then(function(res){ return res.json()})
+            .then(function(res){return res.json()})
             .then(function(data){
-                modalOpen(data.msg, "Your data is: "+ "\n" +
-                'Name: ' + data.data.name + '\n' +
-                'Surname: ' + data.data.lastName + '\n' +
-                'DNI: ' + data.data.dni + '\n' +
-                'Birthday: ' + data.data.dob + '\n' +
-                'Phone: ' + data.data.phone + '\n' +
-                'Address: ' + data.data.address + '\n' +
-                'City: ' + data.data.city + '\n' +
-                'Postal Code: ' + data.data.zip + '\n' +
-                'Email: ' + data.data.email + '\n' +
-                'Password: ' + data.data.password + '\n');
-                window.localStorage.setItem("name", (data.data.name));
-                window.localStorage.setItem("lastName", (data.data.lastName));
-                window.localStorage.setItem("dni", (data.data.dni));
-                window.localStorage.setItem("dob", (data.data.dob));
-                window.localStorage.setItem("phone", (data.data.phone));
-                window.localStorage.setItem("address", (data.data.address));
-                window.localStorage.setItem("city", (data.data.city));
-                window.localStorage.setItem("zip", (data.data.zip));
-                window.localStorage.setItem("email", (data.data.email));
-                window.localStorage.setItem("password", (data.data.password));
-                allInputs.forEach(function(allInputs){
+                if(data.success == true){
+                    modalOpen(data.msg, 'Your data is: '+ '\n' +
+                    'Name: ' + data.data.name + '\n' +
+                    'Surname: ' + data.data.lastName + '\n' +
+                    'DNI: ' + data.data.dni + '\n' +
+                    'Birthday: ' + data.data.dob + '\n' +
+                    'Phone: ' + data.data.phone + '\n' +
+                    'Address: ' + data.data.address + '\n' +
+                    'City: ' + data.data.city + '\n' +
+                    'Postal Code: ' + data.data.zip + '\n' +
+                    'Email: ' + data.data.email + '\n' +
+                    'Password: ' + data.data.password + '\n');
+                    window.localStorage.setItem('name', (data.data.name));
+                    window.localStorage.setItem('lastName', (data.data.lastName));
+                    window.localStorage.setItem('dni', (data.data.dni));
+                    window.localStorage.setItem('dob', (data.data.dob));
+                    window.localStorage.setItem('phone', (data.data.phone));
+                    window.localStorage.setItem('address', (data.data.address));
+                    window.localStorage.setItem('city', (data.data.city));
+                    window.localStorage.setItem('zip', (data.data.zip));
+                    window.localStorage.setItem('email', (data.data.email));
+                    window.localStorage.setItem('password', (data.data.password));
                     errorsArray.push('Name', 'Last Name', 'DNI', 'Birthday', 'Phone', 'Address', 'City', 'Postal Code',
                     'Email', 'Password', 'Confirm Password');
-                    allInputs.value='';
-                });
+                    allInputs.forEach(function(allInputs){
+                        allInputs.value='';
+                    });
+                }else if (data.errors){
+                    modalOpen('ERROR!', iterateErrors(data));
+                }else if (data.msg){
+                    modalOpen('ERROR!', data.msg);
+                };
             })
-            .catch(function(err){alert(err)});
+            .catch(function(err){modalOpen('SERVER ERROR', err)});
         }else{
             var invalidFields = errorsArray.join('\n');
-            modalOpen('Please check the incorrect inputs:', invalidFields)
-            /* alert('Please check the incorrect inputs: \n' + invalidFields); */
+            modalOpen('Please check the incorrect inputs:', invalidFields);
         };
     };
 
-    cross.onclick = function() {
-        modal.style.display = "none";
-        while(modalBody.firstChild){
-            modalBody.removeChild(modalBody.firstChild);
-            modalHeader.removeChild(modalHeader.lastChild);
-        }
-    }
+    cross.onclick = modalClose;
+
+    modalButton.onclick = modalClose;
 };
